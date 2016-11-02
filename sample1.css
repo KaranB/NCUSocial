@@ -30,7 +30,7 @@
     .login1 {
         align-content: center;
         color: #6b6a6a;
-        background-color: #424242;
+        background-color: #ffffff;
         height: 100%;
     }
     
@@ -76,7 +76,7 @@
         border: solid;
         border-radius: 35px;
         border-color: #01c7b6;
-        background-color: #575757;
+        background-color: #ffffff;
     }
     
     #register {
