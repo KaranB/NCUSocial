@@ -91,7 +91,7 @@ public class loginservlet extends HttpServlet {
             else
             {
                 System.out.println("..");
-                p.println("<h1> Incorrect Username or Password </h1>");
+                response.sendRedirect("index.html");
             }
         }
         catch(Exception e)

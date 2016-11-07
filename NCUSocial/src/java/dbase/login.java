@@ -1,6 +1,7 @@
 package dbase;
 
 import java.sql.*;
+import dbase.config;
 public class login {
 	
 	private static final String dbClassName = "com.mysql.jdbc.Driver";
@@ -17,7 +18,7 @@ public class login {
 	public Connection makeConnection() throws ClassNotFoundException,SQLException
 	{
 		Class.forName(dbClassName);
-		Connection con = DriverManager.getConnection(CONNECTION,"root","dbhrockzz");
+		Connection con = DriverManager.getConnection(CONNECTION,config.dbusername,config.dbpass);
 		System.out.println("Connected to Database");
 		return con;
 		

@@ -11,7 +11,7 @@ public class article {
 	public Connection makeConnection() throws ClassNotFoundException,SQLException
 	{
 		Class.forName(dbClassName);
-		Connection con = DriverManager.getConnection(CONNECTION,"root","dbhrockzz");
+		Connection con = DriverManager.getConnection(CONNECTION,config.dbusername,config.dbpass);
 		System.out.println("Connected to Database");
 		return con;	
 	}
