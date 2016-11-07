@@ -16,12 +16,11 @@ public class user {
 		return con;	
 	}
 	
-	public boolean addUser(String username, String email, String name) throws ClassNotFoundException,SQLException
+	public boolean addUser(String email, String name) throws ClassNotFoundException,SQLException
 	{
 		Connection con = makeConnection();
-		PreparedStatement stmt = con.prepareStatement("INSERT INTO user(username,email,name) VALUES(?,?,?);");
-		stmt.setString(1, username);
-		stmt.setString(2, email);
+		PreparedStatement stmt = con.prepareStatement("INSERT INTO user(email,name) VALUES(?,?,?);");
+		stmt.setString(1, email);
 		stmt.setString(2, name);
 		stmt.execute();
 		System.out.println("User Added Successfully");
@@ -29,46 +28,46 @@ public class user {
 		return true;
 	}
 	
-	public boolean delUser(String username) throws ClassNotFoundException,SQLException
+	public boolean delUser(String email) throws ClassNotFoundException,SQLException
 	{
 		Connection con = makeConnection();
-		PreparedStatement stmt = con.prepareStatement("DELETE FROM user WHERE username=?;");
-		stmt.setString(1, username);
+		PreparedStatement stmt = con.prepareStatement("DELETE FROM user WHERE email=?;");
+		stmt.setString(1, email);
 		stmt.execute();
 		System.out.println("User Deleted Successfully");
 		con.close();
 		return true;
 	}
 	
-	public int userid(String username) throws SQLException,ClassNotFoundException
+	public int userid(String email) throws SQLException,ClassNotFoundException
 	{
 		Connection con = makeConnection();
-		PreparedStatement stmt = con.prepareStatement("SELECT user_id FROM user WHERE username=?;");
-		stmt.setString(1,username);
+		PreparedStatement stmt = con.prepareStatement("SELECT user_id FROM user WHERE email=?;");
+		stmt.setString(1,email);
 		ResultSet rs = stmt.executeQuery();
 		int id = rs.getInt("user_id");
 		con.close();
 		return id;
 	}
 	
-	public boolean updateEmail(String username,String email) throws SQLException,ClassNotFoundException
-	{
-		Connection con = makeConnection();
-		PreparedStatement stmt = con.prepareStatement("UPDATE user SET email=? WHERE username = ?;");
-		stmt.setString(1, email);
-		stmt.setString(2, username);
-		stmt.execute();
-		System.out.println("Email Updated Successfully");
-		con.close();
-		return true;
-	}
+//	public boolean updateEmail(String username,String email) throws SQLException,ClassNotFoundException
+//	{
+//		Connection con = makeConnection();
+//		PreparedStatement stmt = con.prepareStatement("UPDATE user SET email=? WHERE username = ?;");
+//		stmt.setString(1, email);
+//		stmt.setString(2, username);
+//		stmt.execute();
+//		System.out.println("Email Updated Successfully");
+//		con.close();
+//		return true;
+//	}
 	
-	public boolean updateName(String username,String name) throws SQLException,ClassNotFoundException
+	public boolean updateName(String email,String name) throws SQLException,ClassNotFoundException
 	{
 		Connection con = makeConnection();
-		PreparedStatement stmt = con.prepareStatement("UPDATE user SET name=? WHERE username = ?;");
+		PreparedStatement stmt = con.prepareStatement("UPDATE user SET name=? WHERE email = ?;");
 		stmt.setString(1, name);
-		stmt.setString(2, username);
+		stmt.setString(2, email);
 		stmt.execute();
 		System.out.println("Name Updated Successfully");
 		con.close();

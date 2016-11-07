@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Nov 03, 2016 at 01:35 PM
+-- Generation Time: Nov 07, 2016 at 11:32 PM
 -- Server version: 5.7.16-0ubuntu0.16.04.1
 -- PHP Version: 7.0.8-0ubuntu0.16.04.3
 
@@ -30,7 +30,7 @@ CREATE TABLE `article` (
   `article_id` int(11) NOT NULL,
   `category_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
-  `article title` varchar(300) NOT NULL,
+  `article_title` varchar(300) NOT NULL,
   `article_text` text NOT NULL,
   `views` int(11) NOT NULL,
   `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
@@ -52,7 +52,8 @@ CREATE TABLE `category` (
 --
 
 INSERT INTO `category` (`category_id`, `category_name`) VALUES
-(1, 'Education');
+(1, 'Education'),
+(2, 'Sports');
 
 -- --------------------------------------------------------
 
@@ -61,7 +62,7 @@ INSERT INTO `category` (`category_id`, `category_name`) VALUES
 --
 
 CREATE TABLE `login` (
-  `username` varchar(256) NOT NULL,
+  `email` varchar(256) NOT NULL,
   `password` varchar(256) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -69,7 +70,7 @@ CREATE TABLE `login` (
 -- Dumping data for table `login`
 --
 
-INSERT INTO `login` (`username`, `password`) VALUES
+INSERT INTO `login` (`email`, `password`) VALUES
 ('dbh', 'hellonow');
 
 -- --------------------------------------------------------
@@ -80,7 +81,6 @@ INSERT INTO `login` (`username`, `password`) VALUES
 
 CREATE TABLE `user` (
   `user_id` int(11) NOT NULL,
-  `username` varchar(256) NOT NULL,
   `email` varchar(256) NOT NULL,
   `name` varchar(256) NOT NULL,
   `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
@@ -108,15 +108,16 @@ ALTER TABLE `category`
 -- Indexes for table `login`
 --
 ALTER TABLE `login`
-  ADD PRIMARY KEY (`username`),
-  ADD UNIQUE KEY `username` (`username`);
+  ADD PRIMARY KEY (`email`),
+  ADD UNIQUE KEY `username` (`email`);
 
 --
 -- Indexes for table `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`user_id`),
-  ADD UNIQUE KEY `user_id` (`user_id`);
+  ADD UNIQUE KEY `user_id` (`user_id`),
+  ADD UNIQUE KEY `email` (`email`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -131,7 +132,7 @@ ALTER TABLE `article`
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-  MODIFY `category_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `category_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `user`
 --

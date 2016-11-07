@@ -72,10 +72,10 @@ public class loginservlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html");
         PrintWriter p = response.getWriter();
-        String username = request.getParameter("Username");
+        String email = request.getParameter("Username");
         String pass = request.getParameter("Password");
-        dbase.login user = new dbase.login(username,pass);
-        System.out.println(username);
+        dbase.login user = new dbase.login(email,pass);
+        System.out.println(email);
         System.out.println(pass);
         p.println("<!DOCTYPE html>");
         p.println("<html>");
@@ -83,7 +83,7 @@ public class loginservlet extends HttpServlet {
         p.println("</head>");
         p.println("<body>");
         try{
-            if(user.checkCredentials())
+            if(user.checkCredentials(email))
             {
                 System.out.println("...");
                 response.sendRedirect("mainpage.html");
