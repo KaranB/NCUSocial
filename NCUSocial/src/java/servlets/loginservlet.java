@@ -74,7 +74,6 @@ public class loginservlet extends HttpServlet {
         PrintWriter p = response.getWriter();
         String email = request.getParameter("Username");
         String pass = request.getParameter("Password");
-        dbase.login user = new dbase.login(email,pass);
         System.out.println(email);
         System.out.println(pass);
         p.println("<!DOCTYPE html>");
@@ -83,7 +82,7 @@ public class loginservlet extends HttpServlet {
         p.println("</head>");
         p.println("<body>");
         try{
-            if(user.checkCredentials(email))
+            if(login.checkCredentials(email,pass))
             {
                 System.out.println("...");
                 response.sendRedirect("mainpage.html");

@@ -8,7 +8,7 @@ public class article {
 	private static final String CONNECTION =
             "jdbc:mysql://127.0.0.1/ncu_social";
 	
-	public Connection makeConnection() throws ClassNotFoundException,SQLException
+	public static Connection makeConnection() throws ClassNotFoundException,SQLException
 	{
 		Class.forName(dbClassName);
 		Connection con = DriverManager.getConnection(CONNECTION,config.dbusername,config.dbpass);
@@ -16,7 +16,7 @@ public class article {
 		return con;	
 	}
 	
-	public boolean addArticle(int cid, int uid, String title, String text) throws ClassNotFoundException,SQLException
+	public static boolean addArticle(int cid, int uid, String title, String text) throws ClassNotFoundException,SQLException
 	{
 		Connection con = makeConnection();
 		PreparedStatement stmt = con.prepareStatement("INSERT INTO article(category_id,user_id,article_title,article_text,views) VALUES(?,?,?,?,0);");
@@ -30,7 +30,7 @@ public class article {
 		return true;
 	}
 	
-	public boolean delArticle(int id) throws ClassNotFoundException,SQLException
+	public static boolean delArticle(int id) throws ClassNotFoundException,SQLException
 	{
 		Connection con = makeConnection();
 		PreparedStatement stmt = con.prepareStatement("DELETE FROM article WHERE article_id=?;");
@@ -41,7 +41,7 @@ public class article {
 		return true;
 	}
 	
-	public boolean updateArticle(int aid, int cid, String title, String text) throws ClassNotFoundException,SQLException
+	public static boolean updateArticle(int aid, int cid, String title, String text) throws ClassNotFoundException,SQLException
 	{
 		Connection con = makeConnection();
 		PreparedStatement stmt = con.prepareStatement("UPDATE article SET category_id=?,article_title=?,article_text=? WHERE article_id=?");

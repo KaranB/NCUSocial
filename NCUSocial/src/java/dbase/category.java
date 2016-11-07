@@ -11,7 +11,7 @@ public class category {
 	private static final String CONNECTION =
             "jdbc:mysql://127.0.0.1/ncu_social";
 	
-	public Connection makeConnection() throws ClassNotFoundException,SQLException
+	public static Connection makeConnection() throws ClassNotFoundException,SQLException
 	{
 		Class.forName(dbClassName);
 		Connection con = DriverManager.getConnection(CONNECTION,config.dbusername,config.dbpass);
@@ -20,7 +20,7 @@ public class category {
 		
 	}
 	
-	public boolean addCategory(String category_name) throws ClassNotFoundException,SQLException
+	public static boolean addCategory(String category_name) throws ClassNotFoundException,SQLException
 	{
 		Connection con = makeConnection();
 		PreparedStatement stmt = con.prepareStatement("INSERT INTO category(category_name) VALUES(?);");
@@ -31,7 +31,7 @@ public class category {
 		return true;
 	}
 	
-	public boolean delCategory(String category_name) throws ClassNotFoundException, SQLException
+	public static boolean delCategory(String category_name) throws ClassNotFoundException, SQLException
 	{
 		Connection con = makeConnection();
 		PreparedStatement stmt = con.prepareStatement("DELETE FROM category WHERE category_name=?");
@@ -42,7 +42,7 @@ public class category {
 		return true;
 	}
 	
-	public String[] categories() throws ClassNotFoundException,SQLException
+	public static String[] categories() throws ClassNotFoundException,SQLException
 	{
 		Connection con = makeConnection();
 		Statement stmt = con.createStatement();
@@ -61,21 +61,22 @@ public class category {
 		}
 		return arr;
 	}
-	
-	public static void main(String[] args)
-	{
-		category obj = new category();
-		try{
-			String arr[] = obj.categories();
-			for(String a:arr)
-			{
-				System.out.println(a);
-			}
-		}
-		catch(Exception e)
-		{
-			e.printStackTrace();
-		}
-	}
-
 }
+	
+//	public static void main(String[] args)
+//	{
+//		category obj = new category();
+//		try{
+//			String arr[] = obj.categories();
+//			for(String a:arr)
+//			{
+//				System.out.println(a);
+//			}
+//		}
+//		catch(Exception e)
+//		{
+//			e.printStackTrace();
+//		}
+//	}
+//
+//}

@@ -8,7 +8,7 @@ public class user {
 	private static final String CONNECTION =
             "jdbc:mysql://127.0.0.1/ncu_social";
 	
-	public Connection makeConnection() throws ClassNotFoundException,SQLException
+	public static Connection makeConnection() throws ClassNotFoundException,SQLException
 	{
 		Class.forName(dbClassName);
 		Connection con = DriverManager.getConnection(CONNECTION,config.dbusername,config.dbpass);
@@ -16,7 +16,7 @@ public class user {
 		return con;	
 	}
 	
-	public boolean addUser(String email, String name) throws ClassNotFoundException,SQLException
+	public static boolean addUser(String email, String name) throws ClassNotFoundException,SQLException
 	{
 		Connection con = makeConnection();
 		PreparedStatement stmt = con.prepareStatement("INSERT INTO user(email,name) VALUES(?,?,?);");
@@ -28,7 +28,7 @@ public class user {
 		return true;
 	}
 	
-	public boolean delUser(String email) throws ClassNotFoundException,SQLException
+	public static boolean delUser(String email) throws ClassNotFoundException,SQLException
 	{
 		Connection con = makeConnection();
 		PreparedStatement stmt = con.prepareStatement("DELETE FROM user WHERE email=?;");
@@ -39,7 +39,7 @@ public class user {
 		return true;
 	}
 	
-	public int userid(String email) throws SQLException,ClassNotFoundException
+	public static int getID(String email) throws SQLException,ClassNotFoundException
 	{
 		Connection con = makeConnection();
 		PreparedStatement stmt = con.prepareStatement("SELECT user_id FROM user WHERE email=?;");
@@ -50,6 +50,16 @@ public class user {
 		return id;
 	}
 	
+        public static String getName(String email) throws SQLException,ClassNotFoundException
+        {
+            Connection con = makeConnection();
+            PreparedStatement stmt = con.prepareStatement("SELECT name FROM user WHERE email=?;");
+            stmt.setString(1, email);
+            ResultSet rs = stmt.executeQuery();
+            String temp = rs.getString("name");
+            con.close();
+            return temp;
+        }
 //	public boolean updateEmail(String username,String email) throws SQLException,ClassNotFoundException
 //	{
 //		Connection con = makeConnection();
@@ -62,7 +72,7 @@ public class user {
 //		return true;
 //	}
 	
-	public boolean updateName(String email,String name) throws SQLException,ClassNotFoundException
+	public static boolean updateName(String email,String name) throws SQLException,ClassNotFoundException
 	{
 		Connection con = makeConnection();
 		PreparedStatement stmt = con.prepareStatement("UPDATE user SET name=? WHERE email = ?;");

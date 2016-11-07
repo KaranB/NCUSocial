@@ -9,13 +9,7 @@ public class login {
             "jdbc:mysql://127.0.0.1/ncu_social";
 	private String username,password;
         
-        public login(String uname, String pass)
-        {
-            username = new String(uname);
-            password = new String(pass);
-        }
-        
-	public Connection makeConnection() throws ClassNotFoundException,SQLException
+        public static Connection makeConnection() throws ClassNotFoundException,SQLException
 	{
 		Class.forName(dbClassName);
 		Connection con = DriverManager.getConnection(CONNECTION,config.dbusername,config.dbpass);
@@ -23,7 +17,7 @@ public class login {
 		return con;
 		
 	}
-	public boolean addUser(String email,String password) throws SQLException, ClassNotFoundException{
+	public static boolean addUser(String email,String password) throws SQLException, ClassNotFoundException{
 		
 		Connection con = makeConnection();
 		PreparedStatement stmt = con.prepareStatement("INSERT INTO login(email,password) VALUES(?,?);");
@@ -35,19 +29,19 @@ public class login {
 		return true;
 	}
 	
-	public boolean delUser(String email) throws SQLException, ClassNotFoundException
+	public static boolean delUser(String email) throws SQLException, ClassNotFoundException
 	{
 		
 		Connection con = makeConnection();
 		PreparedStatement stmt = con.prepareStatement("DELETE FROM login WHERE email=?");
-		stmt.setString(1, username);
+		stmt.setString(1, email);
 		stmt.execute();
 		System.out.println("User Deleted Successfully");
 		con.close();
 		return true;
 	}
 	
-	public boolean updateUser(String email,String password) throws SQLException, ClassNotFoundException
+	public static boolean updateUser(String email,String password) throws SQLException, ClassNotFoundException
 	{
 		
 		Connection con = makeConnection();
@@ -60,14 +54,14 @@ public class login {
 		return true;
 	}
 
-	public boolean checkCredentials(String email) throws SQLException, ClassNotFoundException
+	public static boolean checkCredentials(String email,String pass) throws SQLException, ClassNotFoundException
 	{
 		Connection con = makeConnection();
 		PreparedStatement stmt = con.prepareStatement("SELECT password FROM login WHERE email=?");
 		stmt.setString(1, email);
 		ResultSet rs = stmt.executeQuery();
 		rs.next();
-		if(password.equals(rs.getString(1))){
+		if(pass.equals(rs.getString(1))){
 			con.close();
 			return true;
 		}
