@@ -6,7 +6,14 @@ public class login {
 	private static final String dbClassName = "com.mysql.jdbc.Driver";
 	private static final String CONNECTION =
             "jdbc:mysql://127.0.0.1/ncu_social";
-	
+	private String username,password;
+        
+        public login(String uname, String pass)
+        {
+            username = new String(uname);
+            password = new String(pass);
+        }
+        
 	public Connection makeConnection() throws ClassNotFoundException,SQLException
 	{
 		Class.forName(dbClassName);
@@ -52,7 +59,7 @@ public class login {
 		return true;
 	}
 
-	public boolean checkCredentials(String username, String password) throws SQLException, ClassNotFoundException
+	public boolean checkCredentials() throws SQLException, ClassNotFoundException
 	{
 		Connection con = makeConnection();
 		PreparedStatement stmt = con.prepareStatement("SELECT password FROM login WHERE username=?");
