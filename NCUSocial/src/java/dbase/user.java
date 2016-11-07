@@ -8,17 +8,26 @@ public class user {
 	private static final String CONNECTION =
             "jdbc:mysql://127.0.0.1/ncu_social";
 	
-	public static Connection makeConnection() throws ClassNotFoundException,SQLException
+	public static Connection makeConnection()
 	{
-		Class.forName(dbClassName);
-		Connection con = DriverManager.getConnection(CONNECTION,config.dbusername,config.dbpass);
-		System.out.println("Connected to Database");
-		return con;	
+		try{
+                    Class.forName(dbClassName);
+                    Connection con = DriverManager.getConnection(CONNECTION,config.dbusername,config.dbpass);
+                    System.out.println("Connected to Database");
+                    return con;
+                }
+                catch(Exception e)
+                {
+                    e.printStackTrace();
+                    return null;
+                }
 	}
 	
 	public static boolean addUser(String email, String name) throws ClassNotFoundException,SQLException
 	{
-		Connection con = makeConnection();
+            try
+            {
+                Connection con = makeConnection();
 		PreparedStatement stmt = con.prepareStatement("INSERT INTO user(email,name) VALUES(?,?,?);");
 		stmt.setString(1, email);
 		stmt.setString(2, name);
@@ -26,39 +35,69 @@ public class user {
 		System.out.println("User Added Successfully");
 		con.close();
 		return true;
+            }
+            catch(Exception e)
+            {
+                e.printStackTrace();
+                return false;
+            }
 	}
 	
 	public static boolean delUser(String email) throws ClassNotFoundException,SQLException
 	{
-		Connection con = makeConnection();
+            try
+            {
+                Connection con = makeConnection();
 		PreparedStatement stmt = con.prepareStatement("DELETE FROM user WHERE email=?;");
 		stmt.setString(1, email);
 		stmt.execute();
 		System.out.println("User Deleted Successfully");
 		con.close();
 		return true;
+            }
+            catch(Exception e)
+            {
+                e.printStackTrace();
+                return false;
+            }
 	}
 	
 	public static int getID(String email) throws SQLException,ClassNotFoundException
 	{
-		Connection con = makeConnection();
+            try
+            {
+                Connection con = makeConnection();
 		PreparedStatement stmt = con.prepareStatement("SELECT user_id FROM user WHERE email=?;");
 		stmt.setString(1,email);
 		ResultSet rs = stmt.executeQuery();
 		int id = rs.getInt("user_id");
 		con.close();
 		return id;
+            }
+            catch(Exception e)
+            {
+                e.printStackTrace();
+                return -1;
+            }
 	}
 	
         public static String getName(String email) throws SQLException,ClassNotFoundException
         {
-            Connection con = makeConnection();
-            PreparedStatement stmt = con.prepareStatement("SELECT name FROM user WHERE email=?;");
-            stmt.setString(1, email);
-            ResultSet rs = stmt.executeQuery();
-            String temp = rs.getString("name");
-            con.close();
-            return temp;
+            try
+            {
+                Connection con = makeConnection();
+                PreparedStatement stmt = con.prepareStatement("SELECT name FROM user WHERE email=?;");
+                stmt.setString(1, email);
+                ResultSet rs = stmt.executeQuery();
+                String temp = rs.getString("name");
+                con.close();
+                return temp;
+            }
+            catch(Exception e)
+            {
+                e.printStackTrace();
+                return null;
+            }
         }
 //	public boolean updateEmail(String username,String email) throws SQLException,ClassNotFoundException
 //	{

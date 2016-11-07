@@ -7,18 +7,26 @@ public class login {
 	private static final String dbClassName = "com.mysql.jdbc.Driver";
 	private static final String CONNECTION =
             "jdbc:mysql://127.0.0.1/ncu_social";
-	private String username,password;
-        
-        public static Connection makeConnection() throws ClassNotFoundException,SQLException
+	
+        public static Connection makeConnection()
 	{
-		Class.forName(dbClassName);
-		Connection con = DriverManager.getConnection(CONNECTION,config.dbusername,config.dbpass);
-		System.out.println("Connected to Database");
-		return con;
-		
+		try{
+                    Class.forName(dbClassName);
+                    Connection con = DriverManager.getConnection(CONNECTION,config.dbusername,config.dbpass);
+                    System.out.println("Connected to Database");
+                    return con;
+                }
+                catch(Exception e)
+                {
+                    e.printStackTrace();
+                    return null;
+                }
 	}
-	public static boolean addUser(String email,String password) throws SQLException, ClassNotFoundException{
-		
+        
+	public static boolean addUser(String email,String password) throws SQLException, ClassNotFoundException
+        {
+            try
+            {
 		Connection con = makeConnection();
 		PreparedStatement stmt = con.prepareStatement("INSERT INTO login(email,password) VALUES(?,?);");
 		stmt.setString(1,email);
@@ -27,11 +35,18 @@ public class login {
 		System.out.println("User Added Successfully");
 		con.close();
 		return true;
+            }
+            catch(Exception e)
+            {
+                e.printStackTrace();
+                return false;
+            }
 	}
 	
 	public static boolean delUser(String email) throws SQLException, ClassNotFoundException
 	{
-		
+            try
+            {
 		Connection con = makeConnection();
 		PreparedStatement stmt = con.prepareStatement("DELETE FROM login WHERE email=?");
 		stmt.setString(1, email);
@@ -39,11 +54,18 @@ public class login {
 		System.out.println("User Deleted Successfully");
 		con.close();
 		return true;
+            }
+            catch(Exception e)
+            {
+                e.printStackTrace();
+                return false;
+            }
 	}
 	
 	public static boolean updateUser(String email,String password) throws SQLException, ClassNotFoundException
 	{
-		
+            try
+            {
 		Connection con = makeConnection();
 		PreparedStatement stmt = con.prepareStatement("UPDATE login SET password=? WHERE email=?");
 		stmt.setString(1, password);
@@ -52,11 +74,19 @@ public class login {
 		System.out.println("User Updated Successfully");
 		con.close();
 		return true;
+            }
+            catch(Exception e)
+            {
+                e.printStackTrace();
+                return false;
+            }
 	}
 
 	public static boolean checkCredentials(String email,String pass) throws SQLException, ClassNotFoundException
 	{
-		Connection con = makeConnection();
+            try
+            {
+                Connection con = makeConnection();
 		PreparedStatement stmt = con.prepareStatement("SELECT password FROM login WHERE email=?");
 		stmt.setString(1, email);
 		ResultSet rs = stmt.executeQuery();
@@ -67,6 +97,12 @@ public class login {
 		}
 		con.close();
 		return false;
+            }
+            catch(Exception e)
+            {
+                e.printStackTrace();
+                return false;
+            }
 	}
 	
 //	public static void main(String [] args)

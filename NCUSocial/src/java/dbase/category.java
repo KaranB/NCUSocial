@@ -11,40 +11,64 @@ public class category {
 	private static final String CONNECTION =
             "jdbc:mysql://127.0.0.1/ncu_social";
 	
-	public static Connection makeConnection() throws ClassNotFoundException,SQLException
+	public static Connection makeConnection()
 	{
-		Class.forName(dbClassName);
-		Connection con = DriverManager.getConnection(CONNECTION,config.dbusername,config.dbpass);
-		System.out.println("Connected to Database");
-		return con;
-		
+		try{
+                    Class.forName(dbClassName);
+                    Connection con = DriverManager.getConnection(CONNECTION,config.dbusername,config.dbpass);
+                    System.out.println("Connected to Database");
+                    return con;
+                }
+                catch(Exception e)
+                {
+                    e.printStackTrace();
+                    return null;
+                }
 	}
 	
 	public static boolean addCategory(String category_name) throws ClassNotFoundException,SQLException
 	{
-		Connection con = makeConnection();
+            try
+            {
+                Connection con = makeConnection();
 		PreparedStatement stmt = con.prepareStatement("INSERT INTO category(category_name) VALUES(?);");
 		stmt.setString(1,category_name);
 		stmt.execute();
 		System.out.println("Category Added Successfully");
 		con.close();
 		return true;
+            }
+            catch(Exception e)
+            {
+                e.printStackTrace();
+                return false;
+            }
 	}
 	
 	public static boolean delCategory(String category_name) throws ClassNotFoundException, SQLException
 	{
-		Connection con = makeConnection();
+            try
+            {
+                Connection con = makeConnection();
 		PreparedStatement stmt = con.prepareStatement("DELETE FROM category WHERE category_name=?");
 		stmt.setString(1,category_name);
 		stmt.execute();
 		System.out.println("Category Deleted Successfully");
 		con.close();
 		return true;
+            }
+            catch(Exception e)
+            {
+                e.printStackTrace();
+                return false;
+            }
 	}
 	
 	public static String[] categories() throws ClassNotFoundException,SQLException
 	{
-		Connection con = makeConnection();
+            try
+            {
+                Connection con = makeConnection();
 		Statement stmt = con.createStatement();
 		ResultSet rs = stmt.executeQuery("SELECT category_name from category;");
 		List<String> results = new ArrayList<String>();
@@ -60,6 +84,12 @@ public class category {
 			i++;
 		}
 		return arr;
+            }
+            catch(Exception e)
+            {
+                e.printStackTrace();
+                return null;
+            }
 	}
 }
 	
