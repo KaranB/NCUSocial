@@ -1,6 +1,7 @@
 package dbase;
 
 import java.sql.*;
+import java.util.*;
 
 public class article {
 
@@ -55,4 +56,32 @@ public class article {
 		return true;
 	}
 	
+        public static String[] articlesByUser(int userid)
+        {
+            try{
+                Connection con = makeConnection();
+                PreparedStatement stmt = con.prepareStatement("SELECT article_id FROM article WHERE user_id=?;");
+                stmt.setInt(1,userid);
+                ResultSet rs = stmt.executeQuery();
+                List<String> results = new ArrayList<String>();
+		while(rs.next())
+		{
+			results.add(rs.getString("article_id"));
+		}
+		String arr[] = new String[results.size()];
+		int i = 0;
+		for(Object a : results.toArray())
+		{
+			arr[i] = new String((String)a);
+			i++;
+		}
+		return arr;
+                
+            }
+            catch(Exception e)
+            {
+                e.printStackTrace();
+                return null;
+            }
+        }
 }

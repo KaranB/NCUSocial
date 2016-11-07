@@ -8,22 +8,26 @@ import dbase.*;
 import dbase.user;
 import dbase.login.*;
 import dbase.article.*;
+import jdk.nashorn.internal.objects.ArrayBufferView;
 /**
  *
  * @author dbhrockzz
  */
 public class userClass {
     
-    int uid;
-    String name;
+    private int uid;
+    private String name;
     //String password;
-    String email;
+    private String email;
+    private String[] articles;
     
     public userClass(String email)
     {
         try{
-            int uid = user.getID(email);
-            String name = user.getName(email);
+            uid = user.getID(email);
+            name = user.getName(email);
+            articles = article.articlesByUser(uid);
+            
         }
         catch(Exception e)
         {
@@ -31,5 +35,38 @@ public class userClass {
         }
     }
     
+    public String getName()
+    {
+        return name;
+    }
     
+    public String getEmail()
+    {
+        return email;
+    }
+    
+    public int getId()
+    {
+        return uid;
+    }
+    
+    public String[] articles()
+    {
+        return articles;
+    }
+    
+    public int noOfArticles()
+    {
+        return articles.length;
+    }
+    
+    public void changeName()
+    {
+        
+    }
+    
+    public void changePassword()
+    {
+        
+    }
 }
