@@ -1,3 +1,11 @@
+<%-- 
+    Document   : Myprofile
+    Created on : 9 Nov, 2016, 11:02:09 PM
+    Author     : dbhrockzz
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <!DOCTYPE>
 <html>
 
@@ -7,6 +15,7 @@
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
+
 <style>
     nav {
         background-color: #01c7b6;
@@ -25,6 +34,16 @@
 </style>
 
 <body>
+	<%
+        String userName = null;
+        Cookie[] cookies = request.getCookies();
+        if(cookies !=null){
+        for(Cookie cookie : cookies){
+            if(cookie.getName().equals("user")) userName = cookie.getValue();
+            }
+        }
+        if(userName == null) response.sendRedirect("index.jsp");    
+    %>
     <div id="header"></div>
     <header>
         <!--navigation bar-->
@@ -48,7 +67,7 @@
 
 
                     <ul id="nav-mobile" class="right hide-on-med-and-down" style="position:relative; right:20px; top:-21px;">
-                        <li><a class="dropdown-button btn  white teal-text" href="#!" data-activates="dropdown1">Hi User!</a></li>
+                        <li><a class="dropdown-button btn  white teal-text" href="#!" data-activates="dropdown1"><%= userName%></a></li>
                     </ul>
                     <ul class="side-nav" id="mobile-demo1">
                         <li>
