@@ -2,59 +2,61 @@
 <html>
 
 <head>
-    <title>sample1</title>
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
-    <link rel="stylesheet" type="text/css" href="sample1.css">
+    <title>Welcome to NCUSocial</title>
+    <link rel="stylesheet" type="text/css" href="css/materialize.css">
+    <style>
+        @media screen and (min-width: 480px) {
+            .welcome {
+                height: 453.22px;
+            }
+            .login {
+                height: 453.22px;
+            }
+        }
+        
+        .login {
+            height: 100%;
+        }
+        
+        .welcome {
+            background-color: #01c7b6;
+            color: white;
+            height: 100%;
+        }
+    </style>
 </head>
 
 <body style="height:100%;">
-
-    <div class="row" style=" color: white; ">
-        <div class="spacing col s1">
-
+    <div class="row" style="margin-bottom:0px;">
+        <!--container is added -->
+        <div class="welcome col s12 m7 l7" style="padding:0px 50px 0px 100px;">
+            <!--Welcome column-->
+            <h1 class="wel_head" style="font-size:40px;padding:80px 0px 0px 0px;">Welcome to our community</h1>
+            <h2 style="font-size:30px;">New here? Why not register yourself</h2>
+            <p>Lorem ipsum dolor sit amet, quo doctus laoreet no, sea no malis simul sententiae, qui ex duis harum. Amet doming tincidunt at pri, cu has nisl omittam convenire, an nostro intellegam eloquentiam quo. Ius iusto invenire cu, wisi rationibus
+                te per. Ut duo habemus nominati suscipiantur, sit ad alia abhorreant. Nonumy singulis vulputate id ius. Vel ex corpora qualisque constituam, detracto delicata inciderint ne mea.</p>
+            <a href="register.html" class=" waves-effect waves-light btn-large white teal-text waves-teal">Register</a>
         </div>
-        <div class="content col s6">
-            <div class="content_inside">
-                <h2>Welcome</h2>
-                <h4>New here? Register for free</h4>
-                <p>Lorem ipsum dolor sit amet, ad has tation aperiri, pro meis adipisci in, elitr dolorem interpretaris ea mel. Odio maiestatis vix ex, his dicat dignissim no. Ex his decore comprehensam. Harum incorrupte et his, in sit vidisse habemus atomorum.
-                    Eos ei dicat principes, et quis feugiat pri.
-                </p>
-                <p>
-                    Te ius paulo semper causae, cotidieque instructior in mea. Quo ut quis dico feugiat, harum indoctum quaerendum ad sit, populo repudiandae cu pro. Te vix docendi accusam, in appetere senserit quo, quem iudico eos ea. Qui id tamquam accusata abhorreant.
-                    Partem viderer in per, equidem omnesque eu eam. Sumo eius atqui an mei, nec vocent aperiam no.
-                </p>
-                <a href="register.html">
-                    <input id="register" type="submit" name="register" value="Register">
-                </a>
-            </div>
-
-
-        </div>
-        <div class="spacing col s1">
-
-        </div>
-
-        <div class="login1 col s4">
-            <form style="margin: 0px;" method="POST" action="login">
-                <div class="login">
-                    <h4>Or Lets resume</h4>
-                    <br>
-                    <div class="label">Username</div>
-                    <input type="text" name="Username" value="">
-                    <div class="label">Password</div>
-                    <input type="password" name="Password" value="">
-                    <input id="submitbtn" type="submit" name=" " value="Login">
-
+        <div class="login col s12 m5 l4" style="padding:0px 50px 0px 100px;">
+            <!--login column-->
+            <h1 style="font-size:40px;color:gray;padding:80px 0px 0px 0px;">Or let's resume</h1>
+            <form action="login" method="POST" id="login_form">
+                <!--login form -->
+                <div class="input-field">
+                    <input type="text" name="Username" value="" id="Username">
+                    <label for="Username">Username</label>
                 </div>
-
-
+                <div class="input-field">
+                    <input type="password" name="Password" value="" id="Password">
+                    <label for="Password">Password</label>
+                </div>
+                <br>
+                <a href="javascript:{}" onclick="document.getElementById('login_form').submit();" class="waves-effect waves-light btn">Log in</a>
             </form>
         </div>
     </div>
-
-
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="js/materialize.min.js"></script>
 </body>
 
 </html>
