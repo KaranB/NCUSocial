@@ -2,138 +2,177 @@
 <html>
 
 <head>
-    <title>Main page</title>
-    <link rel="stylesheet" type="" href="mainpage.css">
-    <link rel="stylesheet" type="" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+    <title>Main Page</title>
+    <link rel="stylesheet" type="text/css" href="mainpage.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <style>
-    .side-nav {
+    nav {
         background-color: #01c7b6;
         color: white;
+    }
+    
+    @media only screen and (max-width: 990px) {
+        .side_table {
+            display: none;
+        }
+    }
+    
+    a {
+        padding-right: 15px;
     }
 </style>
 
 <body>
-    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
-
-    <div class="main row ">
-        <div class="navbar1 col s3 ">
-            <ul class="side-nav" style="height: 100%; transform: translateX(0px);">
-                <li>
-                    <div class="userView" style="height: 20%;">
-                        <div class="background">NCUSOCIAL LOGO</div>
+    <div id="header"></div>
+    <header>
+        <!--navigation bar-->
+        <ul id="dropdown1" class="dropdown-content">
+            <li><a href="#!">Security</a></li>
+            <li>
+                <a href="#!">some</a>
+            </li>
+            <li class="divider"></li>
+            <li><a href="#!">Log Out</a></li>
+        </ul>
+        <div class="navbar-fixed">
+            <nav>
+                <div class="nav-wrapper">
+                    <div class="row">
+                        <a style="padding-left:20px;" href="#" class="brand-logo">Logo</a>
+                        <div class="col s10 m10 "><a href="#" data-activates="mobile-demo1" class="button-collapse"><i class="material-icons">menu</i></a></div>
+                        <div class="col s2 m2 "><a href="#" data-activates="mobile-demo2" class="button-collapse" style=""><i class="material-icons">trending_up</i></a></div>
                     </div>
-                </li>
-                <li class="search">
-                    <nav>
-                        <div class="nav-wrapper">
-                            <form>
-                                <div class="input-field" style="background-color: white;">
-                                    <input id="search" type="search" required>
-                                    <label for="search"><i class="material-icons">search</i></label>
-                                    <i class="material-icons">close</i>
+
+
+
+                    <ul id="nav-mobile" class="right hide-on-med-and-down" style="position:relative; right:20px; top:-21px;">
+                        <li><a class="dropdown-button btn  white teal-text" href="#!" data-activates="dropdown1">Hi User!</a></li>
+                    </ul>
+                    <ul class="side-nav" id="mobile-demo1">
+                        <li>
+                            <div class="userView">
+                                <div class="background">
+                                    <img src="">
                                 </div>
-                            </form>
-                        </div>
-                    </nav>
-
-                </li>
-                <br>
-                <li><a style="color: white; font-size: 18px;font-weight: normal;" class="waves-effect" href="#!"><i class="material-icons">search</i>My Page</a></li>
-                <li><a style="color: white;font-size: 18px;font-weight: normal;" class="waves-effect" href="#!"><i class="material-icons">menu</i>Link</a></li>
-                <li><a style="color: white;font-size: 18px;font-weight: normal;" class="waves-effect" href="#!"><i class="material-icons">menu</i>More link</a></li>
-                <li><a style="color: white;font-size: 18px;font-weight: normal;" class="waves-effect" href="#!"><i class="material-icons">menu</i>More link</a></li>
-                <li><a style="color: white;font-size: 18px;font-weight: normal;" class="waves-effect" href="#!"><i class="material-icons">menu</i>Bla bla bla</a></li>
-
-
-            </ul>
-        </div>
-
-        <div class="maincontent col s9 ">
-            <div class="row ">
-                <div class="content col s9 ">
-                    <br>
-                    <div class="card white ">
-                        <div class="card-content gray-text ">
-                            <span class="card-title ">Posted by #someone</span>
-                            <ul>
-                                <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                                    consequat.
-                                </li>
-                                <br>
-                                <li>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</li>
-
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="card white ">
-                        <div class="card-content gray-text ">
-                            <span class="card-title ">Posted by #someone</span>
-                            <ul>
-                                <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                                    consequat.
-                                </li>
-                                <br>
-                                <li>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</li>
-
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="card white ">
-                        <div class="card-content gray-text ">
-                            <span class="card-title ">Posted by #someone</span>
-                            <ul>
-                                <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                                    consequat.
-                                </li>
-                                <br>
-                                <li>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</li>
-
-                            </ul>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="navbar2 col s3 ">
-                    <div style="position: fixed;">
-                        <div class="option" style="padding: 20px 0px 0px 0px;">
-                            <a style="background-color:#01c7b6;" class='dropdown-button btn' href='#' data-activates='dropdown1'>Somebiggertextlike</a>
-
-                            <ul id='dropdown1' class='dropdown-content'>
-                                <li><a href="#!">Setting</a></li>
-                                <li><a href="#!">Privacy</a></li>
-                                <li class="divider"></li>
-                                <li><a href="#!">LOGOUT</a></li>
-                            </ul>
-                        </div>
-
-                        <div class="card white ">
-                            <div class="card-content gray-text ">
-                                <span class="card-title ">Trending Articles</span>
-                                <ul>
-                                    <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                                        consequat.
-                                    </li>
-                                    <br>
-                                    <li>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</li>
-
-                                </ul>
-
-
+                                <a href="#!user"><img class="circle" src=""></a>
+                                <a href="#!name"><span class="white-text name">John Doe</span></a>
+                                <a href="#!email"><span class="white-text email">jdandturk@gmail.com</span></a>
                             </div>
-                        </div>
-                    </div>
+                        </li>
+                        <li><a class="waves-effect" href="#!"><i class="material-icons">dns</i>Feed</a></li>
+                        <li><a class="waves-effect" href="#!"><i class="material-icons">perm_identity</i>My Page</a></li>
+                        <li>
+                            <div class="divider"></div>
+                        </li>
 
+                        <li><a class="waves-effect" href="#!"><i class="material-icons">power_settings_new</i>Logout</a></li>
+                    </ul>
+                    <ul class="side-nav" id="mobile-demo2">
+                        <li>
+                            <div class="userView">
+                                <div class="background">
+                                    <img src="">
+                                </div>
+                                <a href="#!user"><img class="circle" src=""></a>
+                                <a href="#!name"><span class="white-text name">John Doe</span></a>
+                                <a href="#!email"><span class="white-text email">jdandturk@gmail.com</span></a>
+                            </div>
+                        </li>
+                        <li><a class="waves-effect" href="#!">1.article heading</a></li>
+                        <li><a class="waves-effect" href="#!">2.article heading</a></li>
+                        <li><a class="waves-effect" href="#!">3.article heading</a></li>
+                        <li><a class="waves-effect" href="#!">4.article heading</a></li>
+                        <li><a class="waves-effect" href="#!">5.article heading</a></li>
+                        <li><a class="waves-effect" href="#!">6.article heading</a></li>
+                    </ul>
                 </div>
+            </nav>
 
+        </div>
+    </header>
+    <ul style="margin-top:67px;" class="side-nav fixed">
+        <li>
+            <div class="userView">
+                <div class="background">
+                    <img src="">
+                </div>
+                <a href="#!user"><img class="circle" src=""></a>
+                <a href="#!name"><span class="white-text name">John Doe</span></a>
+                <a href="#!email"><span class="white-text email">jdandturk@gmail.com</span></a>
+            </div>
+        </li>
+        <li><a class="waves-effect" href="#!"><i class="material-icons">dns</i>Feed</a></li>
+        <li><a class="waves-effect" href="#!"><i class="material-icons">perm_identity</i>My Page</a></li>
+        <li>
+            <div class="divider"></div>
+        </li>
+    </ul>
+    <div class="row">
+        <div class=" side_table col s12 m12 l3" style="padding-top:0px;"> some</div>
+        <div class="col s12 m12 l6 teal-text" style="padding-top:20px;">
+            <div class="card white ">
+                <div class="card-content gray-text ">
+                    <span class="card-title ">Posted by #someone</span>
+                    <ul>
+                        <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        </li>
+                        <br>
+                        <li>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</li>
+
+                    </ul>
+                </div>
+            </div>
+            <div class="card white ">
+                <div class="card-content gray-text ">
+                    <span class="card-title ">Posted by #someone</span>
+                    <ul>
+                        <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        </li>
+                        <br>
+                        <li>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</li>
+
+                    </ul>
+                </div>
+            </div>
+            <div class="card white ">
+                <div class="card-content gray-text ">
+                    <span class="card-title ">Posted by #someone</span>
+                    <ul>
+                        <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        </li>
+                        <br>
+                        <li>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</li>
+
+                    </ul>
+                </div>
             </div>
         </div>
-
+        <div class="side_table col l3 " style="padding-top:20px;">
+            <div class="card white" style="position:fixed; margin-right:10px;">
+                <div class="card-content teal-text">
+                    <span class="card-title">Trending Articles</span>
+                    <ul>
+                        <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        </li>
+                        <li>text</li>
+                        <li>text</li>
+                        <li>text</li>
+                        <li>text</li>
+                        <li>text</li>
+                        <li>More</li>
+                    </ul>
+                </div>
+                <div class="card-action">
+                    <a href="#">View All</a>
+                </div>
+            </div>
+        </div>
     </div>
-
-
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
+    <script type="text/javascript" src="js/myscript.js"></script>
 </body>
 
 </html>
