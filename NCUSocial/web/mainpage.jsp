@@ -32,15 +32,36 @@
 </style>
 
 <body>
+    <script> 
+    function preventBack(){
+        window.history.forward();
+    } 
+    setTimeout("preventBack()", 0);  window.onunload=function(){null}; 
+    </script>
     <%
-        String userName = null;
-        Cookie[] cookies = request.getCookies();
-        if(cookies !=null){
+//        response.setHeader("Cache-Control","no-cache");
+//        String userName = null;
+//        Cookie[] cookies = request.getCookies();
+//        if(cookies !=null){
+//        for(Cookie cookie : cookies){
+//            if(cookie.getName().equals("user")) userName = cookie.getValue();
+//            }
+//        }
+//        if(userName == null) response.sendRedirect("index.jsp"); 
+        String user = null;
+        if(session.getAttribute("user") == null){
+            response.sendRedirect("index.jsp");
+        }
+        else user = (String) session.getAttribute("user");
+    String userName = null;
+    String sessionID = null;
+    Cookie[] cookies = request.getCookies();
+    if(cookies !=null){
         for(Cookie cookie : cookies){
             if(cookie.getName().equals("user")) userName = cookie.getValue();
-            }
+            if(cookie.getName().equals("JSESSIONID")) sessionID = cookie.getValue();
         }
-        if(userName == null) response.sendRedirect("index.jsp");    
+    }
     %>
     <div id="header"></div>
     <header>
@@ -51,7 +72,9 @@
                 <a href="#!">some</a>
             </li>
             <li class="divider"></li>
-            <li><a href="#!">Log Out</a></li>
+            <form action="logoutservlet" method="POST" id="logout">
+                <li><a href="javascript:{}" onClick="document.getElementById('logout').submit();">Log Out</a></li>
+            </form>
         </ul>
         <div class="navbar-fixed">
             <nav>
