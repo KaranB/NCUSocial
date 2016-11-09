@@ -2,7 +2,7 @@ package dbase;
 
 import java.sql.*;
 import java.util.*;
-
+import dbase.category.*;
 public class article {
 
 	private static final String dbClassName = "com.mysql.jdbc.Driver";
@@ -135,6 +135,61 @@ public class article {
             {
                 e.printStackTrace();
                 return null;
+            }
+        }
+        
+        public static String changeCategory(int aid, int cid)
+        {
+            try{
+                Connection con = makeConnection();
+                PreparedStatement stmt = con.prepareStatement("UPDATE article SET category_id=? WHERE article_id=?;");
+                stmt.setInt(1,cid);
+                stmt.setInt(2,aid);
+                stmt.executeUpdate();
+                con.close();
+                return category.categoryName(cid);
+            }
+            catch(Exception e)
+            {
+                e.printStackTrace();
+                return null;
+            }
+        }
+        
+        public static boolean changeTitle(int aid, String title)
+        {
+            try{
+                Connection con = makeConnection();
+                PreparedStatement stmt = con.prepareStatement("UPDATE article SET article_title=? WHERE article_id=?;");
+                stmt.setString(1,title);
+                stmt.setInt(2,aid);
+                stmt.executeUpdate();
+                con.close();
+                return true;
+            }    
+            catch(Exception e)
+            {
+                e.printStackTrace();
+                return false;
+            }
+        }
+        
+        public static boolean changeText(int aid, String text)
+        {
+            try
+            {
+                Connection con = makeConnection();
+                PreparedStatement stmt = con.prepareStatement("UPDATE article SET article_text=? WHERE article_id=?;");
+                stmt.setString(1,text);
+                stmt.setInt(2,aid);
+                stmt.executeUpdate();
+                con.close();
+                return true;
+            }
+            catch(Exception e)
+            {
+                e.printStackTrace();
+                return false;
             }
         }
 }

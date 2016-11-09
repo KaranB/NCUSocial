@@ -91,6 +91,28 @@ public class category {
                 return null;
             }
 	}
+        
+        public static String categoryName(int cid)
+        {
+            try{
+                Connection con = makeConnection();
+                PreparedStatement stmt = con.prepareStatement("SELECT category_name FROM category WHERE category_id=?;");
+                stmt.setInt(1,cid);
+                ResultSet rs = stmt.executeQuery();
+                String name = rs.getString("category_name");
+                if(name==null)
+                {
+                    return null;
+                }
+                return name;
+            }
+            catch(Exception e)
+            {
+                e.printStackTrace();
+                return null;
+            }
+        }
+        
 }
 	
 //	public static void main(String[] args)
