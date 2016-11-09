@@ -64,6 +64,25 @@ public class category {
             }
 	}
 	
+        public static boolean changeName(int cid, String name)
+        {
+            try
+            {
+                Connection con = makeConnection();
+                PreparedStatement stmt = con.prepareStatement("UPDATE category SET category_name=? WHERE category_id=?;");
+                stmt.setString(1,name);
+                stmt.setInt(2,cid);
+                stmt.execute();
+                System.out.println("Category Name Changed Successfully");
+                con.close();
+                return true;
+            }
+            catch(Exception e)
+            {
+                e.printStackTrace();
+                return false;
+            }
+        }
 	public static String[] categories() throws ClassNotFoundException,SQLException
 	{
             try
@@ -91,6 +110,28 @@ public class category {
                 return null;
             }
 	}
+        
+        public static String categoryName(int cid)
+        {
+            try{
+                Connection con = makeConnection();
+                PreparedStatement stmt = con.prepareStatement("SELECT category_name FROM category WHERE category_id=?;");
+                stmt.setInt(1,cid);
+                ResultSet rs = stmt.executeQuery();
+                String name = rs.getString("category_name");
+                if(name==null)
+                {
+                    return null;
+                }
+                return name;
+            }
+            catch(Exception e)
+            {
+                e.printStackTrace();
+                return null;
+            }
+        }
+        
 }
 	
 //	public static void main(String[] args)
