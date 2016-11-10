@@ -93,6 +93,15 @@
                     <input type="password" name="Password" value="" id="Password">
                     <label for="Password">Password</label>
                 </div>
+                <%  
+                    if(request.getAttribute("loginResult")!=null && request.getAttribute("loginResult")=="true"){
+                %>     
+                    <div>
+                    	<span style="color:red">Wrong Username or Password</span>
+                    </div>
+                <%
+                    }
+                %>
                 <br>
                 <a href="javascript:{}" onclick="document.getElementById('login_form').submit();" class="waves-effect waves-light btn">Log in</a>
                 <a  style="padding-left:20px; color: gray;" href="" class="tooltipped" data-position="right" data-delay="10" data-tooltip="Happens often" >Forgot Password ?</a>
