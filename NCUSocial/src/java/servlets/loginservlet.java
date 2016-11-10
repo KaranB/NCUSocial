@@ -11,6 +11,10 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.RequestDispatcher;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpSession;
 import dbase.login;
 /**
  *
@@ -18,6 +22,8 @@ import dbase.login;
  */
 public class loginservlet extends HttpServlet {
 
+    private final String userID = "admin";
+    private final String password = "password";
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -76,21 +82,22 @@ public class loginservlet extends HttpServlet {
         String pass = request.getParameter("Password");
         System.out.println(email);
         System.out.println(pass);
-        p.println("<!DOCTYPE html>");
-        p.println("<html>");
-        p.println("<head>");
-        p.println("</head>");
-        p.println("<body>");
+        
         try{
             if(login.checkCredentials(email,pass))
             {
-                System.out.println("...");
-                response.sendRedirect("mainpage.html");
+                HttpSession session = request.getSession();
+		session.setAttribute("user",email);
+		session.setMaxInactiveInterval(30*60);
+		Cookie userName = new Cookie("user", email);
+		userName.setMaxAge(30*60);
+		response.addCookie(userName);
+		response.sendRedirect("mainpage.jsp");
+                
             }
             else
             {
-                System.out.println("..");
-                response.sendRedirect("index.html");
+                response.sendRedirect("index.jsp");
             }
         }
         catch(Exception e)
