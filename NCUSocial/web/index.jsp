@@ -76,16 +76,16 @@
                     <div class="col s8 m8 l6">
                     <br>
                         <div class="input-field">
-                            <input type="text" name="" value="" id="First_name" required>
+                            <input type="text" name="name" value="" id="First_name" required>
                             <label  for="name">Name</label>
                         </div>
                         <div class="input-field">
-                            <input type="text" name="" value="" id="Email_id" required>
+                            <input type="text" name="email" value="" id="Email_id" required>
                             <label  for="Email_id">Email id </label>
                         </div>
 
                         <div class="input-field">
-                            <input type="password" name="" value="" id="Password" required>
+                            <input type="password" name="pass" value="" id="Password" required>
                             <label  for="Password">Password</label>
                         </div>
                     <br>
