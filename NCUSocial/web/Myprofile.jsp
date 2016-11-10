@@ -45,73 +45,7 @@
         }
         if(userName == null) response.sendRedirect("index.jsp");    
     %>
-    <div id="header"></div>
-    <header>
-        <!--navigation bar-->
-        <ul id="dropdown1" class="dropdown-content">
-            <li><a href="#!">Security</a></li>
-            <li>
-                <a href="#!">some</a>
-            </li>
-            <li class="divider"></li>
-            <li><a href="#!">Log Out</a></li>
-        </ul>
-        <div class="navbar-fixed">
-            <nav>
-                <div class="nav-wrapper">
-                    <div class="row">
-                        <a style="padding-left:20px;" href="#" class="brand-logo">Logo</a>
-                        <div class="col s10 m10 "><a href="#" data-activates="mobile-demo1" class="button-collapse"><i class="material-icons">menu</i></a></div>
-                        <div class="col s2 m2 "><a href="#" data-activates="mobile-demo2" class="button-collapse" style=""><i class="material-icons">trending_up</i></a></div>
-                    </div>
-
-
-
-                    <ul id="nav-mobile" class="right hide-on-med-and-down" style="position:relative; right:20px; top:-21px;">
-                        <li><a class="dropdown-button btn  white teal-text" href="#!" data-activates="dropdown1"><%= userName%></a></li>
-                    </ul>
-                    <ul class="side-nav" id="mobile-demo1">
-                        <li>
-                            <div class="userView">
-                                <div class="background">
-                                    <img src="">
-                                </div>
-                                <a href="#!user"><img class="circle" src=""></a>
-                                <a href="#!name"><span class="white-text name">John Doe</span></a>
-                                <a href="#!email"><span class="white-text email">jdandturk@gmail.com</span></a>
-                            </div>
-                        </li>
-                        <li><a class="waves-effect" href="mainpage.jsp"><i class="material-icons">dns</i>Feed</a></li>
-                        <li><a class="waves-effect" href="Myprofile.jsp"><i class="material-icons">perm_identity</i>My Page</a></li>
-                        <li>
-                            <div class="divider"></div>
-                        </li>
-
-                        <li><a class="waves-effect" href="#!"><i class="material-icons">power_settings_new</i>Logout</a></li>
-                    </ul>
-                    <ul class="side-nav" id="mobile-demo2">
-                        <li>
-                            <div class="userView">
-                                <div class="background">
-                                    <img src="">
-                                </div>
-                                <a href="#!user"><img class="circle" src=""></a>
-                                <a href="#!name"><span class="white-text name">John Doe</span></a>
-                                <a href="#!email"><span class="white-text email">jdandturk@gmail.com</span></a>
-                            </div>
-                        </li>
-                        <li><a class="waves-effect" href="#!">1.article heading</a></li>
-                        <li><a class="waves-effect" href="#!">2.article heading</a></li>
-                        <li><a class="waves-effect" href="#!">3.article heading</a></li>
-                        <li><a class="waves-effect" href="#!">4.article heading</a></li>
-                        <li><a class="waves-effect" href="#!">5.article heading</a></li>
-                        <li><a class="waves-effect" href="#!">6.article heading</a></li>
-                    </ul>
-                </div>
-            </nav>
-
-        </div>
-    </header>
+    <jsp:include page="header.jsp" />
     <ul style="margin-top:67px;" class="side-nav fixed">
         <li>
             <div class="userView">

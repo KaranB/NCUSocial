@@ -38,11 +38,33 @@
         #Sign_up{         
             background-color: #01c7b6;
         }
+        #Sign_up .input-field input[type=text]:focus {
+            border-bottom: 1px solid gray;
+            
+        }
+        #Sign_up .input-field input[type=password]:focus {
+            border-bottom: 1px solid gray;
+            
+        }
+        #Sign_up .input-field label {
+            color: white;
+        }
+        #Sign_up .input-field input{
+            border-bottom: 1px solid white;
+        }
+        
+          /* label focus color */
+        #Sign_up .input-field input[type=text]:focus + label{
+            color: gray;
+        }
+        #Sign_up .input-field input[type=password]:focus + label{
+            color: gray;
+        }
         
     </style>
 </head>
 
-<body style="height:100%;margin:10px 10px 10px 10px;">
+<body style="height:100%;">
     <div class="row" style="margin-bottom:0px;">
         <!--container is added -->
         <div id="welcome" class="welcome col s12 m8 l8" style="padding:0px 50px 0px 50px;">
@@ -51,20 +73,20 @@
             <h2 style="font-size:30px;">New here? Why not register yourself</h2>
             <div id="Sign_up" class="row">
                 <form id="signup" action="signup" method="POST">
-                    <div class="col s6 m6 l6">
+                    <div class="col s8 m8 l6">
                     <br>
                         <div class="input-field">
-                            <input type="text" name="" value="" id="First_name">
-                            <label style="color:white;" for="name">Name</label>
+                            <input type="text" name="" value="" id="First_name" required>
+                            <label  for="name">Name</label>
                         </div>
                         <div class="input-field">
-                            <input type="text" name="" value="" id="Email_id">
-                            <label style="color:white;" for="Email_id">Email id </label>
+                            <input type="text" name="" value="" id="Email_id" required>
+                            <label  for="Email_id">Email id </label>
                         </div>
 
                         <div class="input-field">
-                            <input type="password" name="" value="" id="Password">
-                            <label style="color:white;" for="Password">Password</label>
+                            <input type="password" name="" value="" id="Password" required>
+                            <label  for="Password">Password</label>
                         </div>
                     <br>
                 
@@ -91,11 +113,11 @@
                 <!--login form -->
                 <br>
                 <div class="input-field">
-                    <input type="text" name="Username" value="" id="Username">
+                    <input type="text" name="Username" value="" id="Username" required>
                     <label for="Username">Username</label>
                 </div>
                 <div class="input-field">
-                    <input type="password" name="Password" value="" id="Password">
+                    <input type="password" name="Password" value="" id="Password" required>
                     <label for="Password">Password</label>
                 </div>
                 <%  
