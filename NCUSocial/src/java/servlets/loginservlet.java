@@ -82,7 +82,7 @@ public class loginservlet extends HttpServlet {
         String pass = request.getParameter("Password");
         System.out.println(email);
         System.out.println(pass);
-        
+        request.setAttribute("loginResult", "false");
         try{
             if(login.checkCredentials(email,pass))
             {
@@ -92,12 +92,15 @@ public class loginservlet extends HttpServlet {
 		Cookie userName = new Cookie("user", email);
 		userName.setMaxAge(30*60);
 		response.addCookie(userName);
-		response.sendRedirect("mainpage.jsp");
-                
+		request.setAttribute("loginResult", "false");
+                response.sendRedirect("mainpage.jsp");
             }
             else
             {
-                response.sendRedirect("index.jsp");
+                request.setAttribute("loginResult", "true");
+                RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
+                rd.forward(request, response);
+                //response.sendRedirect("index.jsp");
             }
         }
         catch(Exception e)

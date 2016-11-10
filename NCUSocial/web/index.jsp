@@ -103,7 +103,7 @@
                     }
                 %>
                 <br>
-                <a href="javascript:{}" onclick="document.getElementById('login_form').submit();" class="waves-effect waves-light btn">Log in</a>
+                <a href="javascript:{}" onclick="document.getElementById('login_form').submit();" class="waves-effect waves-light btn-large">Log in</a>
                 <a  style="padding-left:20px; color: gray;" href="" class="tooltipped" data-position="right" data-delay="10" data-tooltip="Happens often" >Forgot Password ?</a>
             </form>
             
@@ -112,7 +112,5 @@
     
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script type="text/javascript" src="js/materialize.min.js"></script>
-    <script>
-    </script>
 </body>
 </html>
