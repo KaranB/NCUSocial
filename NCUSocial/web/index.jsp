@@ -42,7 +42,7 @@
     </style>
 </head>
 
-<body style="height:100%;">
+<body style="height:100%;margin:10px 10px 10px 10px;">
     <div class="row" style="margin-bottom:0px;">
         <!--container is added -->
         <div id="welcome" class="welcome col s12 m8 l8" style="padding:0px 50px 0px 50px;">
