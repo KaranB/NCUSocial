@@ -1,22 +1,19 @@
 <%-- 
-    Document   : Myprofile
-    Created on : 9 Nov, 2016, 11:02:09 PM
+    Document   : mainpage
+    Created on : 9 Nov, 2016, 11:25:43 PM
     Author     : dbhrockzz
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-
 <!DOCTYPE>
 <html>
 
 <head>
-    <title>My Profile</title>
+    <title>Main Page</title>
     <link rel="stylesheet" type="text/css" href="mainpage.css">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    
 </head>
-
 <style>
     nav {
         background-color: #01c7b6;
@@ -35,15 +32,36 @@
 </style>
 
 <body>
+    <script> 
+    function preventBack(){
+        window.history.forward();
+    } 
+    setTimeout("preventBack()", 0);  window.onunload=function(){null}; 
+    </script>
     <%
-        String userName = null;
-        Cookie[] cookies = request.getCookies();
-        if(cookies !=null){
+//        response.setHeader("Cache-Control","no-cache");
+//        String userName = null;
+//        Cookie[] cookies = request.getCookies();
+//        if(cookies !=null){
+//        for(Cookie cookie : cookies){
+//            if(cookie.getName().equals("user")) userName = cookie.getValue();
+//            }
+//        }
+//        if(userName == null) response.sendRedirect("index.jsp"); 
+        String user = null;
+        if(session.getAttribute("user") == null){
+            response.sendRedirect("index.jsp");
+        }
+        else user = (String) session.getAttribute("user");
+    String userName = null;
+    String sessionID = null;
+    Cookie[] cookies = request.getCookies();
+    if(cookies !=null){
         for(Cookie cookie : cookies){
             if(cookie.getName().equals("user")) userName = cookie.getValue();
-            }
+            if(cookie.getName().equals("JSESSIONID")) sessionID = cookie.getValue();
         }
-        if(userName == null) response.sendRedirect("index.jsp");    
+    }
     %>
     <div id="header"></div>
     <header>
@@ -54,7 +72,9 @@
                 <a href="#!">some</a>
             </li>
             <li class="divider"></li>
-            <li><a href="#!">Log Out</a></li>
+            <form action="logoutservlet" method="POST" id="logout">
+                <li><a href="javascript:{}" onClick="document.getElementById('logout').submit();">Log Out</a></li>
+            </form>
         </ul>
         <div class="navbar-fixed">
             <nav>
@@ -68,7 +88,7 @@
 
 
                     <ul id="nav-mobile" class="right hide-on-med-and-down" style="position:relative; right:20px; top:-21px;">
-                        <li><a class="dropdown-button btn  white teal-text" href="#!" data-activates="dropdown1"><%= userName%></a></li>
+                        <li><a class="dropdown-button btn  white teal-text" href="#!" data-activates="dropdown1"><%= userName %></a></li>
                     </ul>
                     <ul class="side-nav" id="mobile-demo1">
                         <li>
@@ -130,61 +150,52 @@
         </li>
     </ul>
     <div class="row">
-        <div class=" side_table col s12 m12 l3" style="padding-top:0px;"> </div>
+        <div class=" side_table col s12 m12 l3" style="padding-top:0px;"> some</div>
         <div class="col s12 m12 l6 teal-text" style="padding-top:20px;">
-            <ul class="collection with-header">
-                <li class="collection-header">
-                    <h4>Your Uploads</h4>
-                </li>
-                <li class="collection-item">
-                    <div>Alvin<a href="#!" class="secondary-content">View</a><a href="#!" class="secondary-content">Delete</a>
-                        <a href="#!" class="secondary-content">Edit</a>
-                    </div>
-                </li>
-                <li class="collection-item">
-                    <div>Alvin<a href="#!" class="secondary-content">View</a><a href="#!" class="secondary-content">Delete</a>
-                        <a href="#!" class="secondary-content">Edit</a>
-                    </div>
-                </li>
-                <li class="collection-item">
-                    <div>Alvin<a href="#!" class="secondary-content">View</a><a href="#!" class="secondary-content">Delete</a>
-                        <a href="#!" class="secondary-content">Edit</a>
-                    </div>
-                </li>
-                <li class="collection-item">
-                    <div>Alvin<a href="#!" class="secondary-content">View</a><a href="#!" class="secondary-content">Delete</a>
-                        <a href="#!" class="secondary-content">Edit</a>
-                    </div>
-                </li>
-                <li class="collection-item">
-                    <div>Alvin<a href="#!" class="secondary-content">View</a><a href="#!" class="secondary-content">Delete</a>
-                        <a href="#!" class="secondary-content">Edit</a>
-                    </div>
-                </li>
-                <li class="collection-item">
-                    <div>Alvin<a href="#!" class="secondary-content">View</a><a href="#!" class="secondary-content">Delete</a>
-                        <a href="#!" class="secondary-content">Edit</a>
-                    </div>
-                </li>
-                <li class="collection-item">
-                    <div>Alvin<a href="#!" class="secondary-content">View</a><a href="#!" class="secondary-content">Delete</a>
-                        <a href="#!" class="secondary-content">Edit</a>
-                    </div>
-                </li>
-                <li class="collection-item">
-                    <div>Alvin<a href="#!" class="secondary-content">View</a><a href="#!" class="secondary-content">Delete</a>
-                        <a href="#!" class="secondary-content">Edit</a>
-                    </div>
-                </li>
+            <div class="card white ">
+                <div class="card-content gray-text ">
+                    <span class="card-title ">Posted by #someone</span>
+                    <ul>
+                        <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        </li>
+                        <br>
+                        <li>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</li>
 
-            </ul>
+                    </ul>
+                </div>
+            </div>
+            <div class="card white ">
+                <div class="card-content gray-text ">
+                    <span class="card-title ">Posted by #someone</span>
+                    <ul>
+                        <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        </li>
+                        <br>
+                        <li>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</li>
+
+                    </ul>
+                </div>
+            </div>
+            <div class="card white ">
+                <div class="card-content gray-text ">
+                    <span class="card-title ">Posted by #someone</span>
+                    <ul>
+                        <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        </li>
+                        <br>
+                        <li>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</li>
+
+                    </ul>
+                </div>
+            </div>
         </div>
-        <div class="side_table col l3" style="padding-top:20px;">
-            <div class="card white">
+        <div class="side_table col l3 " style="padding-top:20px;">
+            <div class="card white" style="position:fixed; margin-right:10px;">
                 <div class="card-content teal-text">
                     <span class="card-title">Trending Articles</span>
                     <ul>
-                        <li>text</li>
+                        <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        </li>
                         <li>text</li>
                         <li>text</li>
                         <li>text</li>
