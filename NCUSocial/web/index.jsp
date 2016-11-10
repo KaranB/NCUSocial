@@ -50,34 +50,39 @@
             <h1 class="wel_head" style="font-size:40px;padding:30px 0px 0px 0px;">Welcome to our community</h1>
             <h2 style="font-size:30px;">New here? Why not register yourself</h2>
             <div id="Sign_up" class="row">
-                <div class="col s6 m6 l6">
-                <br>
-                <div class="input-field">
-                    <input type="text" name="" value="" id="First_name">
-                    <label style="color:white;" for="First_name">First name</label>
-                </div>
+                <form id="signup" action="signup" method="POST">
+                    <div class="col s6 m6 l6">
+                    <br>
+                        <div class="input-field">
+                            <input type="text" name="" value="" id="First_name">
+                            <label style="color:white;" for="name">Name</label>
+                        </div>
+                        <div class="input-field">
+                            <input type="text" name="" value="" id="Email_id">
+                            <label style="color:white;" for="Email_id">Email id </label>
+                        </div>
 
-                <div class="input-field">
+                        <div class="input-field">
+                            <input type="password" name="" value="" id="Password">
+                            <label style="color:white;" for="Password">Password</label>
+                        </div>
+                    <br>
+                
+
+<!--                <div class="input-field">
                     <input type="text" name="" value="" id="Last_name">
                     <label style="color:white;" for="Last_name">Last name</label>
-                </div>
-                </div>
+                </div>-->
+<!--                </div>
                 <div class="col s6 m6 l6">
                 <br>
-                <div class="input-field">
-                    <input type="text" name="" value="" id="Email_id">
-                    <label style="color:white;" for="Email_id">Email id </label>
+                                <br>
+                </div>-->
+                <a href="javascript:{}" onClick="document.getElementById('signup').submit();" class=" waves-effect waves-light btn-large white teal-text waves-teal">Sign Up</a>
                 </div>
-
-                <div class="input-field">
-                    <input type="password" name="" value="" id="Password">
-                    <label style="color:white;" for="Password">Password</label>
-                </div>
-                <br>
-                </div>
-                <a class=" waves-effect waves-light btn-large white teal-text waves-teal">Sign Up</a>
-
+                </form>
             </div>
+            
         </div>
         <div class="login col s12 m4 l4" style="padding:0px 50px 0px 50px;">
             <!--login column-->
