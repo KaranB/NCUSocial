@@ -26,32 +26,31 @@
     a {
         padding-right: 15px;
     }
+    p,li{
+        font-size: 17px;
+    }
+    
+    
 </style>
 
 <body>
-    <jsp:include page="header.jsp" />  
-    <ul style="margin-top:67px;" class="side-nav fixed">
-        <li>
-            <div class="userView">
-                <div class="background">
-                    <img src="">
-                </div>
-                <a href="#!user"><img class="circle" src=""></a>
-                <a href="#!name"><span class="white-text name">John Doe</span></a>
-                <a href="#!email"><span class="white-text email">jdandturk@gmail.com</span></a>
-            </div>
-        </li>
-        <li><a class="waves-effect" href="mainpage.jsp"><i class="material-icons">dns</i>Feed</a></li>
-        <li><a class="waves-effect" href="Myprofile.jsp"><i class="material-icons">perm_identity</i>My Page</a></li>
-        <li>
-            <div class="divider"></div>
-        </li>
-    </ul>
+    <jsp:include page="header.jsp" />
+    <jsp:include page="sidenav.jsp" />
+    
     <div class="row">
         <div class=" side_table col s12 m12 l3" style="padding-top:0px;"> some</div>
         <div class="col s12 m12 l6 teal-text" style="padding-top:20px;">
             <div class="card white ">
-                <div class="card-content gray-text ">
+                <div class="card-content grey-text text-darken-1">
+                    <span class="card-title ">Posted by #someone</span>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        
+                        
+                    </p>
+                </div>
+            </div>
+            <div class="card white ">
+                <div class="card-content grey-text text-darken-1">
                     <span class="card-title ">Posted by #someone</span>
                     <ul>
                         <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
@@ -63,19 +62,7 @@
                 </div>
             </div>
             <div class="card white ">
-                <div class="card-content gray-text ">
-                    <span class="card-title ">Posted by #someone</span>
-                    <ul>
-                        <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                        </li>
-                        <br>
-                        <li>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</li>
-
-                    </ul>
-                </div>
-            </div>
-            <div class="card white ">
-                <div class="card-content gray-text ">
+                <div class="card-content grey-text text-darken-1 ">
                     <span class="card-title ">Posted by #someone</span>
                     <ul>
                         <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
@@ -95,11 +82,7 @@
                         <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                         </li>
                         <li>text</li>
-                        <li>text</li>
-                        <li>text</li>
-                        <li>text</li>
-                        <li>text</li>
-                        <li>More</li>
+                        
                     </ul>
                 </div>
                 <div class="card-action">
@@ -110,7 +93,6 @@
     </div>
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
-    <script type="text/javascript" src="js/myscript.js"></script>
 </body>
 
 </html>

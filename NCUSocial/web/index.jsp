@@ -39,11 +39,11 @@
             background-color: #01c7b6;
         }
         #Sign_up .input-field input[type=text]:focus {
-            border-bottom: 1px solid gray;
+            border-bottom: 1px solid #757575;
             
         }
         #Sign_up .input-field input[type=password]:focus {
-            border-bottom: 1px solid gray;
+            border-bottom: 1px solid #757575;
             
         }
         #Sign_up .input-field label {
@@ -55,26 +55,32 @@
         
           /* label focus color */
         #Sign_up .input-field input[type=text]:focus + label{
-            color: gray;
+            color: #757575;
         }
         #Sign_up .input-field input[type=password]:focus + label{
-            color: gray;
+            color: #757575;
+        }
+        #login_form .input-field label{
+            color: #757575;
+        }
+        #login_form .input-field input{
+            border-bottom: 1px solid #757575;
         }
         
     </style>
 </head>
 
 <body style="height:100%;">
-    <div class="row" style="margin-bottom:0px;">
+    <div class="row flow-text" style="margin-bottom:0px;">
         <!--container is added -->
         <div id="welcome" class="welcome col s12 m8 l8" style="padding:0px 50px 0px 50px;">
             <!--Welcome column-->
-            <h1 class="wel_head" style="font-size:40px;padding:30px 0px 0px 0px;">Welcome to our community</h1>
-            <h2 style="font-size:30px;">New here? Why not register yourself</h2>
+            <h2 class="wel_head" style="padding:30px 0px 0px 0px;">Welcome to our community</h2>
+            <h4>New here? Why not register yourself</h4>
             <div id="Sign_up" class="row">
                 <form id="signup" action="signup" method="POST">
                     <div class="col s8 m8 l6">
-                    <br>
+                   
                         <div class="input-field">
                             <input type="text" name="name" value="" id="First_name" required>
                             <label  for="name">Name</label>
@@ -89,18 +95,16 @@
                             <label  for="Password">Password</label>
                         </div>
                     <br>
-                
-
-<!--                <div class="input-field">
-                    <input type="text" name="" value="" id="Last_name">
-                    <label style="color:white;" for="Last_name">Last name</label>
-                </div>-->
-<!--                </div>
-                <div class="col s6 m6 l6">
-                <br>
-                                <br>
-                </div>-->
-                <a href="javascript:{}" onClick="document.getElementById('signup').submit();" class=" waves-effect waves-light btn-large white teal-text waves-teal">Sign Up</a>
+                     <%  
+                        if(request.getAttribute("signupResult")!=null && request.getAttribute("signupResult")=="false"){
+                        %>     
+                    <div>
+                        <span style="color:white">Registered Successfully</span>
+                    </div>
+                    <%
+                        }
+                    %>
+                    <a href="javascript:{}" style="font-size:18px;" onClick="document.getElementById('signup').submit();" class=" waves-effect waves-light btn-large white teal-text waves-teal">Sign Up</a>
                 </div>
                 </form>
             </div>
@@ -108,10 +112,9 @@
         </div>
         <div class="login col s12 m4 l4" style="padding:0px 50px 0px 50px;">
             <!--login column-->
-            <h1 style="font-size:30px;color:gray;padding:103px 0px 0px 0px;">Or let's resume</h1>
+            <h4 class="grey-text text-darken-1" style="padding:130px 0px 20px 0px;">Or let's resume</h4>
             <form action="login" method="POST" id="login_form">
                 <!--login form -->
-                <br>
                 <div class="input-field">
                     <input type="text" name="Username" value="" id="Username" required>
                     <label for="Username">Username</label>
@@ -130,8 +133,8 @@
                     }
                 %>
                 <br>
-                <a href="javascript:{}" onclick="document.getElementById('login_form').submit();" class="waves-effect waves-light btn-large">Log in</a>
-                <a  style="padding-left:20px; color: gray;" href="" class="tooltipped" data-position="right" data-delay="10" data-tooltip="Happens often" >Forgot Password ?</a>
+                <a href="javascript:{}" style="font-size:18px;" onclick="document.getElementById('login_form').submit();" class="waves-effect waves-light btn-large">Log in</a>
+                <a  style="padding-left:20px;font-size:18px; " href="" class="tooltipped grey-text text-darken-1" data-position="bottom" data-delay="10" data-tooltip="Happens often" >Forgot Password ?</a>
             </form>
             
         </div>

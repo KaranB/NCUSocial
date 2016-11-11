@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import dbase.user;
+import javax.servlet.RequestDispatcher;
 
 /**
  *
@@ -77,24 +78,35 @@ public class signupservlet extends HttpServlet {
         String name = request.getParameter("name");
         String email = request.getParameter("email");
         String pass = request.getParameter("pass");
+        request.setAttribute("signupResult", "true");
+        
         if(user.addUser(email, name)){
             System.out.println("New User added in user table successfully");
+            
         }
         else
         {
             System.out.println("Not able to add a user table record");
+            
             return;
         }
         if(login.addUser(email, pass)){
             System.out.println("New User Created Successfully");
+            request.setAttribute("signupResult", "false");
+            RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
+            rd.forward(request, response);
+            
+            
+            
         }
         else
         {
             System.out.println("Not able to add a login table record");
             user.delUser(email);
+            
             return;
         }
-        response.sendRedirect("index.jsp");
+        //response.sendRedirect("index.jsp");
     }
 
     /**

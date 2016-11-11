@@ -10,15 +10,18 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Header</title>
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
         
-    <link rel="stylesheet" type="text/css" href="mainpage.css">
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <style>
-        nav {
-        background-color: #01c7b6;
-        color: white;
-    }
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <style>
+            nav {
+            background-color: #01c7b6;
+            color: white;
+            
+        }
+        #sidenav-overlay{
+            z-index: 996;
+        }
         </style>
     </head>
     <body>
@@ -53,7 +56,7 @@
         }
     }
     %>
-         <header>
+    <header class="flow-text">
         <!--navigation bar-->
         <ul id="dropdown1" class="dropdown-content">
             <li><a href="#!">Security</a></li>
@@ -68,16 +71,16 @@
         <div class="navbar-fixed">
             <nav>
                 <div class="nav-wrapper">
-                    <div class="row">
+                    <div class="row flow-text">
                         <a style="padding-left:20px;" href="#" class="brand-logo">Logo</a>
                         <div class="col s10 m10 "><a href="#" data-activates="mobile-demo1" class="button-collapse"><i class="material-icons">menu</i></a></div>
                         <div class="col s2 m2 "><a href="#" data-activates="mobile-demo2" class="button-collapse" style=""><i class="material-icons">trending_up</i></a></div>
                     </div>
 
-
+                    
 
                     <ul id="nav-mobile" class="right hide-on-med-and-down" style="position:relative; right:20px; top:-21px;">
-                        <li><a class="dropdown-button btn  white teal-text" href="#!" data-activates="dropdown1"><%= userName %></a></li>
+                        <li><a class="dropdown-button white-text" href="#!" data-activates="dropdown1">Hi <%=userName%> !</a></li>
                     </ul>
                     <ul class="side-nav" id="mobile-demo1">
                         <li>
@@ -121,5 +124,6 @@
 
         </div>
     </header>
+              
     </body>
 </html>
