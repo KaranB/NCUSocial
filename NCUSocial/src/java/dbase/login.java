@@ -23,7 +23,7 @@ public class login {
                 }
 	}
         
-	public static boolean addUser(String email,String password) throws SQLException, ClassNotFoundException
+	public static boolean addUser(String email,String password)
         {
             try
             {
@@ -43,7 +43,7 @@ public class login {
             }
 	}
 	
-	public static boolean delUser(String email) throws SQLException, ClassNotFoundException
+	public static boolean delUser(String email)
 	{
             try
             {
@@ -87,7 +87,7 @@ public class login {
             try
             {
                 Connection con = makeConnection();
-		PreparedStatement stmt = con.prepareStatement("SELECT password FROM login WHERE email=?");
+		PreparedStatement stmt = con.prepareStatement("SELECT password FROM login WHERE email=?;");
 		stmt.setString(1, email);
 		ResultSet rs = stmt.executeQuery();
 		rs.next();
@@ -100,6 +100,7 @@ public class login {
             }
             catch(Exception e)
             {
+                System.out.println("Username or Password Wrong");
                 e.printStackTrace();
                 return false;
             }

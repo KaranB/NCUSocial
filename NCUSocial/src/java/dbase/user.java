@@ -23,12 +23,12 @@ public class user {
                 }
 	}
 	
-	public static boolean addUser(String email, String name) throws ClassNotFoundException,SQLException
+	public static boolean addUser(String email, String name)
 	{
             try
             {
                 Connection con = makeConnection();
-		PreparedStatement stmt = con.prepareStatement("INSERT INTO user(email,name) VALUES(?,?,?);");
+		PreparedStatement stmt = con.prepareStatement("INSERT INTO user(email,name) VALUES(?,?);");
 		stmt.setString(1, email);
 		stmt.setString(2, name);
 		stmt.execute();
@@ -43,7 +43,7 @@ public class user {
             }
 	}
 	
-	public static boolean delUser(String email) throws ClassNotFoundException,SQLException
+	public static boolean delUser(String email)
 	{
             try
             {
