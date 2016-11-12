@@ -34,7 +34,7 @@
     
 </style>
 
-<body>
+<body class="grey lighten-4">
     <%
         String userName = null;
         Cookie[] cookies = request.getCookies();
