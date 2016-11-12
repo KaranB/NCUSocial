@@ -24,6 +24,7 @@ public class userClass {
     public userClass(String email)
     {
         try{
+            this.email = email;
             uid = user.getID(email);
             name = user.getName(email);
             articles = article.articlesByUser(uid);

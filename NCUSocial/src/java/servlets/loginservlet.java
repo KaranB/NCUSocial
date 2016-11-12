@@ -16,6 +16,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpSession;
 import dbase.login;
+import classes.userClass;
 /**
  *
  * @author dbhrockzz
@@ -93,7 +94,10 @@ public class loginservlet extends HttpServlet {
 		userName.setMaxAge(30*60);
 		response.addCookie(userName);
 		request.setAttribute("loginResult", "false");
-                response.sendRedirect("mainpage.jsp");
+                userClass usr = new userClass(email);
+                request.setAttribute("user", usr);
+                RequestDispatcher rd = request.getRequestDispatcher("mainpage.jsp");
+                rd.forward(request, response);
             }
             else
             {

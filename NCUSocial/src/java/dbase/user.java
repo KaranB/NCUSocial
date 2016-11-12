@@ -66,11 +66,15 @@ public class user {
 	{
             try
             {
+                int id = -1;
                 Connection con = makeConnection();
 		PreparedStatement stmt = con.prepareStatement("SELECT user_id FROM user WHERE email=?;");
 		stmt.setString(1,email);
 		ResultSet rs = stmt.executeQuery();
-		int id = rs.getInt("user_id");
+                if(rs.next()){
+                    id = rs.getInt("user_id");
+                }
+		
 		con.close();
 		return id;
             }
@@ -85,11 +89,15 @@ public class user {
         {
             try
             {
+                String temp = new String();
                 Connection con = makeConnection();
                 PreparedStatement stmt = con.prepareStatement("SELECT name FROM user WHERE email=?;");
                 stmt.setString(1, email);
                 ResultSet rs = stmt.executeQuery();
-                String temp = rs.getString("name");
+                if(rs.next()){
+                temp = rs.getString("name");
+                System.out.println(temp);
+                }
                 con.close();
                 return temp;
             }

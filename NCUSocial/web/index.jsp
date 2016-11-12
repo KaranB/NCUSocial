@@ -82,16 +82,16 @@
                     <div class="col s8 m8 l6">
                    
                         <div class="input-field">
-                            <input type="text" name="name" value="" id="First_name" required>
+                            <input type="text" name="name" value="" id="name" required>
                             <label  for="name">Name</label>
                         </div>
                         <div class="input-field">
-                            <input type="text" name="email" value="" id="Email_id" required>
+                            <input type="text" name="email" value="" id="email" required>
                             <label  for="Email_id">Email id </label>
                         </div>
 
                         <div class="input-field">
-                            <input type="password" name="pass" value="" id="Password" required>
+                            <input type="password" name="pass" value="" id="password" required>
                             <label  for="Password">Password</label>
                         </div>
                     <br>
@@ -101,6 +101,17 @@
                     <div>
                         <span style="color:white">Registered Successfully</span>
                     </div>
+                    <br>
+                    <%
+                        }
+                    %>
+                    <%  
+                        if(request.getAttribute("signupResult")!=null && request.getAttribute("signupResult")=="true"){
+                        %>     
+                    <div>
+                        <span style="color:white">User Already Exists or Problem in Registration</span>
+                    </div>
+                    <br>
                     <%
                         }
                     %>
