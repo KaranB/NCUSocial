@@ -12,7 +12,7 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <ul style="margin-top:67px;" class="side-nav fixed">
+        <ul style="margin-top:65px;" class="side-nav fixed">
         <li>
             <div class="userView">
                 <div class="background">
