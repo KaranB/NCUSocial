@@ -15,7 +15,7 @@
                 function editNodeText(regex, input) {
                     if (!regex.test(input)) {
                         alert("Please enter a valid email");
-                        document.getElementById('Email').value="";
+                        document.getElementById('Email').value = "";
                         return false;
 
                     } else {
@@ -48,6 +48,7 @@
                     <h2 class="wel_head" style="padding:30px 0px 0px 0px;">Welcome to our community</h2>
                     <h4>New here? Why not register yourself</h4>
                     <div id="Sign_up" class="row">
+
                         <form id="signup" action="signup" method="POST">
                             <div class="col s8 m8 l6">
 
@@ -65,30 +66,37 @@
                                     <label for="Password">Password</label>
                                 </div>
                                 <br>
+                                <input style="padding-top:15px;font-size:20px;" type="submit" id="signupbtn" class="waves-effect white teal-text btn-large " value="Sign Up">
+                            </div>
+                        </form>
+                        <div class="col s4 m4 l6 center-align">
+                            <div class="container">
+
                                 <%  
-                        if(request.getAttribute("signupResult")!=null && request.getAttribute("signupResult")=="false"){
-                        %>
-                                    <div>
+                              if(request.getAttribute("signupResult")!=null && request.getAttribute("signupResult")=="false"){
+                               %>
+                                    <div style="margin-top: 120px;">
                                         <span style="color:white">Registered Successfully</span>
                                     </div>
                                     <br>
                                     <%
-                        }
-                    %>
+                              }
+                              %>
+
                                         <%  
-                        if(request.getAttribute("signupResult")!=null && request.getAttribute("signupResult")=="true"){
-                        %>
-                                            <div>
+                              if(request.getAttribute("signupResult")!=null && request.getAttribute("signupResult")=="true"){
+                              %>
+                                            <div style="margin-top: 120px;">
                                                 <span style="color:white">User Already Exists or Problem in Registration</span>
                                             </div>
                                             <br>
                                             <%
 
-                        }
-                    %>
-                                                <input style="padding-top:15px;font-size:20px;" type="submit" id="signupbtn" class="waves-effect white teal-text btn-large " value="Sign Up">
+                              }
+                              %>
+
                             </div>
-                        </form>
+                        </div>
                     </div>
                 </div>
                 <div class="login col s12 m4 l4" style="padding:0px 50px 0px 50px;">
