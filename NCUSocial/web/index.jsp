@@ -35,7 +35,7 @@
                 var Emailreg = document.signupform.email.value;
 
                 function validatesignup() {
-                    return editnodeText(/^[A-Za-z0-9._-]+@ncuindia.edu$/, Emailreg);
+                    return editNodeText(/^[A-Za-z0-9._-]+@ncuindia.edu$/, Emailreg);
                 }
             </script>
         </head>
@@ -48,7 +48,7 @@
                     <h2 class="wel_head" style="padding:30px 0px 0px 0px;">Welcome to our community</h2>
                     <h4>New here? Why not register yourself</h4>
                     <div id="Sign_up" class="row">
-                        <form id="signup" action="signup" method="POST">
+                        <form id="signup" action="signup" method="POST" onsubmit="return validatesignup()">
                             <div class="col s8 m8 l6">
 
                                 <div class="input-field">
