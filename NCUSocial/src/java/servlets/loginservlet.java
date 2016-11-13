@@ -86,14 +86,14 @@ public class loginservlet extends HttpServlet {
         try{
             if(login.checkCredentials(email,pass))
             {
-                HttpSession session = request.getSession();
+                                                HttpSession session = request.getSession();
 		session.setAttribute("user",email);
 		session.setMaxInactiveInterval(30*60);
 		Cookie userName = new Cookie("user", email);
 		userName.setMaxAge(30*60);
 		response.addCookie(userName);
 		request.setAttribute("loginResult", "false");
-                response.sendRedirect("mainpage.jsp");
+                                                response.sendRedirect("mainpage.jsp");
             }
             else
             {

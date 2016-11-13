@@ -12,6 +12,7 @@ public class user {
 	{
 		try{
                     Class.forName(dbClassName);
+                    
                     Connection con = DriverManager.getConnection(CONNECTION,config.dbusername,config.dbpass);
                     System.out.println("Connected to Database");
                     return con;
