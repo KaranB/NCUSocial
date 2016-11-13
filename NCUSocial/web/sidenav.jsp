@@ -20,13 +20,13 @@
                     <img src="">
                 </div>
                 <a href="#!user"><img class="circle" src=""></a>
-                <a href="#!name"><span class="white-text name">John Doe</span></a>
-                <a href="#!email"><span class="white-text email">jdandturk@gmail.com</span></a>
+                <a href="#!name"><span class="name"> ${user.getName()} </span></a>
+                <a href="#!email"><span class="email"> ${user.getEmail()} </span></a>
             </div>
         </li>
-        <li><a class="waves-effect" href="mainpage.jsp"><i class="material-icons">dns</i>Feed</a></li>
-        <li><a class="waves-effect" href="Myprofile.jsp"><i class="material-icons">perm_identity</i>My Page</a></li>
-        <li><a class="waves-effect" href="Upload.jsp"><i class="material-icons">open_in_new</i>Upload</a></li>
+        <li><a class="waves-effect"><i class="material-icons">dns</i>Feed</a></li>
+        <li><a class="waves-effect"><i class="material-icons">perm_identity</i>My Page</a></li>
+        <li><a class="waves-effect"><i class="material-icons">open_in_new</i>Upload</a></li>
         
         <li>
             <div class="divider"></div>

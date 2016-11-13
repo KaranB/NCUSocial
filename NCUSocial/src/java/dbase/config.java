@@ -11,5 +11,5 @@ package dbase;
  */
 public class config {
     public static final String dbusername = "root";
-    public static final String dbpass = "";
+    public static final String dbpass = "dbhrockzz";
 }

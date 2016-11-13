@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ page import="classes.userClass.*" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -25,12 +26,12 @@
         </style>
     </head>
     <body>
-        <script> 
+<!--        <script> 
     function preventBack(){
         window.history.forward();
     } 
     setTimeout("preventBack()", 0);  window.onunload=function(){null}; 
-    </script>
+    </script>-->
     <%
 //        response.setHeader("Cache-Control","no-cache");
 //        String userName = null;
@@ -46,15 +47,15 @@
             response.sendRedirect("index.jsp");
         }
         else user = (String) session.getAttribute("user");
-    String userName = null;
-    String sessionID = null;
-    Cookie[] cookies = request.getCookies();
-    if(cookies !=null){
-        for(Cookie cookie : cookies){
-            if(cookie.getName().equals("user")) userName = cookie.getValue();
-            if(cookie.getName().equals("JSESSIONID")) sessionID = cookie.getValue();
+        String userName = null;
+        String sessionID = null;
+        Cookie[] cookies = request.getCookies();
+        if(cookies !=null){
+            for(Cookie cookie : cookies){
+                if(cookie.getName().equals("user")) userName = cookie.getValue();
+                if(cookie.getName().equals("JSESSIONID")) sessionID = cookie.getValue();
+            }
         }
-    }
     %>
     <header class="flow-text">
         <!--navigation bar-->
@@ -72,7 +73,7 @@
             <nav>
                 <div class="nav-wrapper">
                     <div class="row flow-text">
-                        <a style="padding-left:20px;" href="#" class="brand-logo">Logo</a>
+                        <a style="padding-left:20px;" href="#" class="brand-logo">NCU Learn</a>
                         <div class="col s10 m10 "><a href="#" data-activates="mobile-demo1" class="button-collapse"><i class="material-icons">menu</i></a></div>
                         <div class="col s2 m2 "><a href="#" data-activates="mobile-demo2" class="button-collapse" style=""><i class="material-icons">trending_up</i></a></div>
                     </div>
@@ -80,7 +81,7 @@
                     
 
                     <ul id="nav-mobile" class="right hide-on-med-and-down" style="position:relative; right:20px; top:-21px;">
-                        <li><a class="dropdown-button white-text" href="#!" data-activates="dropdown1">Hi <%=userName%> !</a></li>
+                        <li><a class="dropdown-button white-text" href="#!" data-activates="dropdown1">Hi ${user.getName()} !</a></li>
                     </ul>
                     <ul class="side-nav" id="mobile-demo1">
                         <li>

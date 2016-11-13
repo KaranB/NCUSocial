@@ -82,12 +82,13 @@ public class signupservlet extends HttpServlet {
         
         if(user.addUser(email, name)){
             System.out.println("New User added in user table successfully");
-            
         }
         else
         {
             System.out.println("Not able to add a user table record");
-            
+            request.setAttribute("signupResult", "true");
+            RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
+            rd.forward(request, response);       
             return;
         }
         if(login.addUser(email, pass)){
@@ -103,7 +104,9 @@ public class signupservlet extends HttpServlet {
         {
             System.out.println("Not able to add a login table record");
             user.delUser(email);
-            
+            request.setAttribute("signupResult", "true");
+            RequestDispatcher rd = request.getRequestDispatcher("index.jsp");
+            rd.forward(request, response);
             return;
         }
         //response.sendRedirect("index.jsp");

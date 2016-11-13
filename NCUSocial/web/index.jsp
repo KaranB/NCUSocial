@@ -18,8 +18,10 @@
                         return false;
 
                     } else {
-                              return true;}
+                        return true;
+                    }
                 }
+
 
                 function validatelogin() {
                     if (document.loginform.Username.value === null || document.loginform.Username.value === "" || document.loginform.Password.value === null || document.loginform.Password.value === "") {
@@ -46,18 +48,20 @@
                     <h2 class="wel_head" style="padding:30px 0px 0px 0px;">Welcome to our community</h2>
                     <h4>New here? Why not register yourself</h4>
                     <div id="Sign_up" class="row">
-                        <form id="signup" action="signup" method="POST" name="signupform" onsubmit="return validatesignup()">
+                        <form id="signup" action="signup" method="POST">
                             <div class="col s8 m8 l6">
+
                                 <div class="input-field">
-                                    <input type="text" name="name" id="First_name" required>
+                                    <input type="text" name="name" value="" id="name" required>
                                     <label for="name">Name</label>
                                 </div>
                                 <div class="input-field">
-                                    <input type="text" name="email" id="Email_id" required>
+                                    <input type="text" name="email" value="" id="email" required>
                                     <label for="Email_id">Email id </label>
                                 </div>
+
                                 <div class="input-field">
-                                    <input type="password" name="pass" id="Password" required>
+                                    <input type="password" name="pass" value="" id="password" required>
                                     <label for="Password">Password</label>
                                 </div>
                                 <br>
@@ -67,10 +71,22 @@
                                     <div>
                                         <span style="color:white">Registered Successfully</span>
                                     </div>
+                                    <br>
                                     <%
                         }
                     %>
-                                        <input style="padding-top:15px;font-size:20px;" type="submit" id="loginbtn" class="waves-effect white teal-text btn-large " value="Sign Up">
+                                        <%  
+                        if(request.getAttribute("signupResult")!=null && request.getAttribute("signupResult")=="true"){
+                        %>
+                                            <div>
+                                                <span style="color:white">User Already Exists or Problem in Registration</span>
+                                            </div>
+                                            <br>
+                                            <%
+
+                        }
+                    %>
+                                                <input style="padding-top:15px;font-size:20px;" type="submit" id="signupbtn" class="waves-effect white teal-text btn-large " value="Sign Up">
                             </div>
                         </form>
                     </div>
