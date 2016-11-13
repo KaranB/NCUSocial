@@ -15,6 +15,7 @@
                 function editNodeText(regex, input) {
                     if (!regex.test(input)) {
                         alert("Please enter a valid email");
+                        document.getElementById('Email').value="";
                         return false;
 
                     } else {
@@ -26,16 +27,15 @@
                 function validatelogin() {
                     if (document.loginform.Username.value === null || document.loginform.Username.value === "" || document.loginform.Password.value === null || document.loginform.Password.value === "") {
                         alert("Please enter all the credentials");
+
                         return false;
                     } else
                         return true;
 
                 }
 
-                var Emailreg = document.signupform.email.value;
-
-                function validatesignup() {
-                    return editNodeText(/^[A-Za-z0-9._-]+@ncuindia.edu$/, Emailreg);
+                function validatesignup(input) {
+                    return editNodeText(/^[A-Za-z0-9._-]+@ncuindia.edu$/, input.value);
                 }
             </script>
         </head>
@@ -48,7 +48,7 @@
                     <h2 class="wel_head" style="padding:30px 0px 0px 0px;">Welcome to our community</h2>
                     <h4>New here? Why not register yourself</h4>
                     <div id="Sign_up" class="row">
-                        <form id="signup" action="signup" method="POST" onsubmit="return validatesignup()">
+                        <form id="signup" action="signup" method="POST">
                             <div class="col s8 m8 l6">
 
                                 <div class="input-field">
@@ -56,8 +56,8 @@
                                     <label for="name">Name</label>
                                 </div>
                                 <div class="input-field">
-                                    <input type="text" name="email" value="" id="email" required>
-                                    <label for="Email_id">Email id </label>
+                                    <input type="text" name="email" value="" id="Email" onblur="validatesignup(this);" required>
+                                    <label for="email">Email id </label>
                                 </div>
 
                                 <div class="input-field">
