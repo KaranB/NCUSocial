@@ -66,8 +66,10 @@
                                     <label for="Password">Password</label>
                                 </div>
                                 <br>
+                                <label>
                                 <input style="padding-top:15px;font-size:20px;" type="submit" id="signupbtn" class="waves-effect white teal-text btn-large " value="Sign Up">
-                            </div>
+                                </label>
+                              </div>
                         </form>
                         <div class="col s4 m4 l6 center-align">
                             <div class="container">
@@ -122,7 +124,10 @@
                     }
                 %>
                                 <br>
-                                <input style="padding-top:15px;font-size:20px;" type="submit" id="loginbtn" class="waves-effect btn-large center-align" value="submit">
+                                <label>
+                                    <input style="padding-top:15px;font-size:20px;" type="submit" id="loginbtn" class="waves-effect btn-large center-align" value="submit">
+                                </label>
+
                                 <a style="padding-left:20px;font-size:18px; " href="" class="tooltipped grey-text text-darken-1" data-position="bottom" data-delay="10" data-tooltip="Happens often">Forgot Password ?</a>
                     </form>
                 </div>
