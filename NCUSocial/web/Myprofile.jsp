@@ -6,6 +6,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
+
 <!DOCTYPE>
 <html>
 
@@ -35,14 +36,21 @@
 
 <body class="grey lighten-4">
     <%
+        String user = null;
+        if(session.getAttribute("user") == null){
+            response.sendRedirect("index.jsp");
+        }
+        else user = (String) session.getAttribute("user");
         String userName = null;
+        String sessionID = null;
         Cookie[] cookies = request.getCookies();
         if(cookies !=null){
-        for(Cookie cookie : cookies){
-            if(cookie.getName().equals("user")) userName = cookie.getValue();
+            for(Cookie cookie : cookies){
+                if(cookie.getName().equals("user")) userName = cookie.getValue();
+                if(cookie.getName().equals("JSESSIONID")) sessionID = cookie.getValue();
             }
         }
-        if(userName == null) response.sendRedirect("index.jsp");    
+	classes.userClass u = new classes.userClass(userName);
     %>
     <jsp:include page="header.jsp" />
     <jsp:include page="sidenav.jsp" />

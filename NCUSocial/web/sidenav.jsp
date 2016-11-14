@@ -39,9 +39,9 @@
         <li>
             <div class="userView">
                 <div class="background">
-                    <img src="">
+                    <img src="images/yVTC511.jpg">
                 </div>
-                <a href="#!user"><img class="circle" src=""></a>
+                <a href="#!user"><img class="circle" src="https://pbs.twimg.com/profile_images/507448828878798848/BAL8BMeT_400x400.jpeg"></a>
                 <a href="#!name"><span class="name"> <%= u.getName() %> </span></a>
                 <a href="#!email"><span class="email"> <%= u.getEmail() %>  </span></a>
             </div>
