@@ -14,10 +14,9 @@ public class categoryClass {
     private int id;
     private String name;
 
-    public void categoryClass(int cid)
+    public categoryClass(int cid)
     {
         this.id = cid;
-        this.name = category.categoryName(cid);
     }
     
     public int getId() {
@@ -29,14 +28,7 @@ public class categoryClass {
     }
 
     public void setName(String name) {
-        if(category.changeName(id, name))
-        {
-            this.name = name;
-        }
-        else
-        {
-            System.out.println("Unable to Change Category Name");
-        }  
+        this.name = name;  
     }
     
     

@@ -16,20 +16,26 @@ public class articleClass {
     private int aid;
     private int uid;
     private int cid;
+    private int views;
     private String title;
     private String text;
     private String cname;
-    private userClass publisher;
+    public userClass publisher;
     
     public articleClass(int aid)
     {
         try{
-            
+            this.aid = aid;
         }
         catch(Exception e)
         {
             e.printStackTrace();
         }
+    }
+    
+    public static Integer[] articles()
+    {
+        return article.allArticles();
     }
     
     public int getAid() {
@@ -95,9 +101,20 @@ public class articleClass {
         }
     }
 
+    public void setUid(int id)
+    {
+        this.uid = id;
+        publisher = new classes.userClass(this.uid);
+    }
+    
+    
 //    public void setPublisher(userClass publisher) {
 //        this.publisher = publisher;
 //    }
 //    
+
+    public void setViews(int views) {
+        this.views = views;
+    }
     
 }

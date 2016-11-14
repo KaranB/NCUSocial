@@ -108,6 +108,29 @@ public class user {
                 return null;
             }
         }
+        
+        public static String getEmail(int uid)
+        {
+            try
+            {
+                String temp = new String();
+                Connection con = makeConnection();
+                PreparedStatement stmt = con.prepareStatement("SELECT email FROM user WHERE user_id=?;");
+                stmt.setInt(1, uid);
+                ResultSet rs = stmt.executeQuery();
+                if(rs.next()){
+                temp = rs.getString("email");
+                System.out.println(temp);
+                }
+                con.close();
+                return temp;
+            }
+            catch(Exception e)
+            {
+                e.printStackTrace();
+                return null;
+            }
+        }
 //	public boolean updateEmail(String username,String email) throws SQLException,ClassNotFoundException
 //	{
 //		Connection con = makeConnection();

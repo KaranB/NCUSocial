@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.*;
 import java.util.*;
+import classes.categoryClass.*;
 
 public class category {
 	private static final String dbClassName = "com.mysql.jdbc.Driver";
@@ -72,7 +73,7 @@ public class category {
                 PreparedStatement stmt = con.prepareStatement("UPDATE category SET category_name=? WHERE category_id=?;");
                 stmt.setString(1,name);
                 stmt.setInt(2,cid);
-                stmt.execute();
+                stmt.executeUpdate();
                 System.out.println("Category Name Changed Successfully");
                 con.close();
                 return true;
@@ -111,6 +112,48 @@ public class category {
             }
 	}
         
+        public static Integer[] categoriesId()
+	{
+            try
+            {
+                Connection con = makeConnection();
+		Statement stmt = con.createStatement();
+		ResultSet rs = stmt.executeQuery("SELECT category_id from category;");
+		List<Integer> results = new ArrayList<Integer>();
+		while(rs.next())
+		{
+			results.add(rs.getInt("category_id"));
+		}
+		Integer arr[] = new Integer[results.size()];
+		int i = 0;
+		for(Object a : results.toArray())
+		{
+			arr[i] = (int)a;
+			i++;
+		}
+		return arr;
+            }
+            catch(Exception e)
+            {
+                e.printStackTrace();
+                return null;
+            }
+	}
+        
+        public static classes.categoryClass sendObj(int id)
+        {
+            try
+            {
+                classes.categoryClass obj = new classes.categoryClass(id);
+                obj.setName(categoryName(id));
+                return obj;
+            }
+            catch(Exception e)
+            {
+                e.printStackTrace();
+                return null;
+            }
+        }
         public static String categoryName(int cid)
         {
             try{
@@ -118,6 +161,7 @@ public class category {
                 PreparedStatement stmt = con.prepareStatement("SELECT category_name FROM category WHERE category_id=?;");
                 stmt.setInt(1,cid);
                 ResultSet rs = stmt.executeQuery();
+                rs.next();
                 String name = rs.getString("category_name");
                 if(name==null)
                 {

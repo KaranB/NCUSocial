@@ -19,7 +19,7 @@ public class userClass {
     private String name;
     //String password;
     private String email;
-    private String[] articles;
+    private Integer[] articles;
     
     public userClass(String email)
     {
@@ -36,6 +36,19 @@ public class userClass {
         }
     }
     
+    public userClass(int uid)
+    {
+        try{
+            this.uid = uid;
+            this.email = user.getEmail(uid);
+            this.name = user.getName(this.email);
+            this.articles = article.articlesByUser(uid);    
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+    }
     public String getName()
     {
         return name;
@@ -51,7 +64,7 @@ public class userClass {
         return uid;
     }
     
-    public String[] articles()
+    public Integer[] articles()
     {
         return articles;
     }

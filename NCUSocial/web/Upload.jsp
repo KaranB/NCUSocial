@@ -38,12 +38,17 @@
                                     <br>
                                     <div class="input-field">
                                         <select id="selection_drop">
-                                <option value="1">Option 1</option>
-                                <option value="2">Option 2</option>
-                                <option value="3">Option 3</option>
-                                <option value="3">Opt   ion 4</option>
-                                <option value="3">Option 5</option>
-                                </select>
+                                            <%  Integer[] ids = dbase.category.categoriesId(); 
+                                                if(ids!=null){
+                                                    for(int id: ids)
+                                                    {
+                                                        classes.categoryClass obj = dbase.category.sendObj(id);
+                                            %>
+                                            
+                                                
+                                                        <option value="<%= obj.getId() %>"><%= obj.getName() %></option>
+                                            <% }} %>
+                                        </select>
                                         <label for="selection_drop">Article category</label>
                                     </div>
                                 </div>
@@ -54,7 +59,7 @@
                                         <label for="textarea1">Content</label>
                                     </div>
 
-                                    <div style="padding-bottom:20px;" class="file-field input-field">
+<!--                                    <div style="padding-bottom:20px;" class="file-field input-field">
                                         <div class="btn">
                                             <span>File</span>
                                             <input type="file">
@@ -62,7 +67,7 @@
                                         <div class="file-path-wrapper">
                                             <input class="file-path validate" type="text">
                                         </div>
-                                    </div>
+                                    </div>-->
                                 </div>
 
                             </form>

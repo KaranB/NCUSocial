@@ -4,7 +4,10 @@
     Author     : dbhrockzz
 --%>
 
-    <%@page contentType="text/html" pageEncoding="UTF-8"%>
+    <%@page import="dbase.article"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="dbase.article.*"%>
+<%@page import="classes.articleClass.*"%>
         <!DOCTYPE>
         <html>
 
@@ -37,20 +40,27 @@
             <div class="row">
                 <div class=" side_table col s12 m12 l3" style="padding-top:0px;"> some</div>
                 <div class="col s12 m12 l6" style="padding-top:20px;">
+                <% 
+                    Integer[] ids = article.allArticles();
+                    if(ids!=null){
+                    for(int id: ids)
+                    {
+                        classes.articleClass obj = dbase.article.articleObj(id);
+                %>
                     <div class="card">
                         <div class="card-content grey-text text-darken-1">
-			     <h4>Title</h4>
-			     <span class="card-title " style="font-size:20px;">Posted by #Author on #date</span>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-
-
+                            <h4><%= obj.getTitle() %></h4>
+			     <span class="card-title " style="font-size:20px;">Posted by <%= obj.publisher.getName() %> on #date</span>
+                            <p>
+                                <%= obj.getText() %>
                             </p>
                         </div>
                         <div class="card-action">
                             <a href="#">View</a>
                         </div>
                     </div>
-                    <div class="card">
+                <% }} %>
+<!--                    <div class="card">
                         <div class="card-content grey-text text-darken-1">
 			     <h4>Title</h4>
 			     <span class="card-title " style="font-size:20px;">Posted by #Author on #date</span>
@@ -88,7 +98,7 @@
                         <div class="card-action">
                             <a href="#">View</a>
                         </div>
-                    </div>
+                    </div>-->
                 </div>
                 <div class="side_table col l3 " style="padding-top:20px;">
                     <div class="card white" style="position:fixed; margin-right:10px;">

@@ -3,6 +3,7 @@ package dbase;
 import java.sql.*;
 import java.util.*;
 import dbase.category.*;
+import classes.articleClass.*;
 public class article {
 
 	private static final String dbClassName = "com.mysql.jdbc.Driver";
@@ -24,6 +25,7 @@ public class article {
                 }
 	}
 	
+        
 	public static boolean addArticle(int cid, int uid, String title, String text) throws ClassNotFoundException,SQLException
 	{
 		Connection con = makeConnection();
@@ -109,27 +111,84 @@ public class article {
                     
 	}
 	
-        public static String[] articlesByUser(int userid)
+        public static Integer[] articlesByUser(int userid)
         {
             try{
                 Connection con = makeConnection();
                 PreparedStatement stmt = con.prepareStatement("SELECT article_id FROM article WHERE user_id=?;");
                 stmt.setInt(1,userid);
                 ResultSet rs = stmt.executeQuery();
-                List<String> results = new ArrayList<String>();
+                List<Integer> results = new ArrayList<Integer>();
 		while(rs.next())
 		{
-			results.add(rs.getString("article_id"));
+			results.add(rs.getInt("article_id"));
 		}
-		String arr[] = new String[results.size()];
+		Integer arr[] = new Integer[results.size()];
 		int i = 0;
 		for(Object a : results.toArray())
 		{
-			arr[i] = new String((String)a);
+			arr[i] = (int)a;
 			i++;
 		}
 		return arr;
                 
+            }
+            catch(Exception e)
+            {
+                e.printStackTrace();
+                return null;
+            }
+        }
+        
+        public static Integer[] articlesByCategory(int cid)
+        {
+            try{
+                Connection con = makeConnection();
+                PreparedStatement stmt = con.prepareStatement("SELECT article_id FROM article WHERE category_id=?;");
+                stmt.setInt(1,cid);
+                ResultSet rs = stmt.executeQuery();
+                List<Integer> results = new ArrayList<Integer>();
+		while(rs.next())
+		{
+			results.add(rs.getInt("article_id"));
+		}
+		Integer arr[] = new Integer[results.size()];
+		int i = 0;
+		for(Object a : results.toArray())
+		{
+			arr[i] = (int)a;
+			i++;
+		}
+		return arr;
+        
+            }
+            catch(Exception e)
+            {
+                e.printStackTrace();
+                return null;
+            }
+        }
+        
+        public static Integer[] allArticles()
+        {
+            try{
+                Connection con = makeConnection();
+                PreparedStatement stmt = con.prepareStatement("SELECT article_id FROM article ORDER BY timestamp DESC;");
+                ResultSet rs = stmt.executeQuery();
+                List<Integer> results = new ArrayList<Integer>();
+		while(rs.next())
+		{
+			results.add(rs.getInt("article_id"));
+		}
+		Integer arr[] = new Integer[results.size()];
+		int i = 0;
+		for(Object a : results.toArray())
+		{
+			arr[i] = (int)a;
+			i++;
+		}
+		return arr;
+        
             }
             catch(Exception e)
             {
@@ -190,6 +249,29 @@ public class article {
             {
                 e.printStackTrace();
                 return false;
+            }
+        }
+        
+        public static classes.articleClass articleObj(int aid)
+        {
+            try{
+                classes.articleClass obj = new classes.articleClass(aid);
+                Connection con = makeConnection();
+                PreparedStatement stmt = con.prepareStatement("SELECT category_id,user_id,article_title,article_text,views,timestamp FROM article WHERE article_id=?");
+                stmt.setInt(1,aid);
+                ResultSet rs = stmt.executeQuery();
+                rs.next();
+                obj.setCid(rs.getInt(1));
+                obj.setUid(rs.getInt(2));
+                obj.setTitle(rs.getString(3));
+                obj.setText(rs.getString(4));
+                obj.setViews(rs.getInt(5));
+                return obj;
+            }
+            catch(Exception e)
+            {
+                e.printStackTrace();
+                return null;
             }
         }
 }
