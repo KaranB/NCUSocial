@@ -91,11 +91,11 @@
                         <li>
                             <div class="userView">
                                 <div class="background">
-                                    <img src="">
+                                    <img src="images/yVTC511.jpg">
                                 </div>
-                                <a href="#!user"><img class="circle" src=""></a>
-                                <a href="#!name"><span class="white-text name">John Doe</span></a>
-                                <a href="#!email"><span class="white-text email">jdandturk@gmail.com</span></a>
+                                <a href="#!user"><img class="circle" src="https://pbs.twimg.com/profile_images/507448828878798848/BAL8BMeT_400x400.jpeg"></a>
+                                <a href="#!name"><span class="white-text name"><%= u.getName() %></span></a>
+                                <a href="#!email"><span class="white-text email"><%= u.getEmail() %></span></a>
                             </div>
                         </li>
                         <li><a class="waves-effect" href="mainpage.jsp"><i class="material-icons">dns</i>Feed</a></li>
