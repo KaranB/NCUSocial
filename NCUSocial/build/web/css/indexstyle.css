@@ -1,0 +1,57 @@
+@media only screen and (max-width: 500px) {
+    .welcome {
+        height: 453.22px;
+    }
+    .login {
+        height: 453.22px;
+    }
+}
+
+.login {
+    height: 100%;
+}
+
+.welcome {
+    background-color: #01c7b6;
+    color: white;
+    height: 100%;
+}
+
+#Sign_up {
+    background-color: #01c7b6;
+}
+
+#Sign_up .input-field input[type=text]:focus {
+    border-bottom: 1px solid #757575;
+}
+
+#Sign_up .input-field input[type=password]:focus {
+    border-bottom: 1px solid #757575;
+}
+
+#Sign_up .input-field label {
+    color: white;
+}
+
+#Sign_up .input-field input {
+    border-bottom: 1px solid white;
+}
+
+
+/* label focus color */
+
+#Sign_up .input-field input[type=text]:focus+label {
+    color: #757575;
+}
+
+#Sign_up .input-field input[type=password]:focus+label {
+    color: #757575;
+}
+
+#login_form .input-field label {
+    color: #757575;
+}
+
+#login_form .input-field input {
+    border-bottom: 1px solid #757575;
+}
