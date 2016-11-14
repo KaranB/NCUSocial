@@ -87,7 +87,7 @@ public class loginservlet extends HttpServlet {
         try{
             if(login.checkCredentials(email,pass))
             {
-                                                HttpSession session = request.getSession();
+	        HttpSession session = request.getSession();
 		session.setAttribute("user",email);
 		session.setMaxInactiveInterval(30*60);
 		Cookie userName = new Cookie("user", email);

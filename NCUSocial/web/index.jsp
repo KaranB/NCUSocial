@@ -11,42 +11,23 @@
             <title>Welcome to NCUSocial</title>
             <link rel="stylesheet" type="text/css" href="css/materialize.css">
             <link rel="stylesheet" type="text/css" href="css/indexstyle.css">
-            <script>
-                function editNodeText(regex, input) {
-                    if (!regex.test(input)) {
-                        alert("Please enter a valid email");
-                        document.getElementById('Email').value = "";
-                        return false;
-
-                    } else {
-                        return true;
-                    }
-                }
-
-
-                function validatelogin() {
-                    if (document.loginform.Username.value === null || document.loginform.Username.value === "" || document.loginform.Password.value === null || document.loginform.Password.value === "") {
-                        alert("Please enter all the credentials");
-
-                        return false;
-                    } else
-                        return true;
-
-                }
-
-                function validatesignup(input) {
-                    return editNodeText(/^[A-Za-z0-9._-]+@ncuindia.edu$/, input.value);
-                }
-            </script>
+	    <style>
+		 @media only screen and (min-width :600px){
+		      .welcome,.login{
+			   height: 100%;
+		      }
+		 }
+		 
+	    </style>
         </head>
 
         <body style="height:100%;">
-            <div class="row flow-text" style="margin-bottom:0px;">
+            <div class="row left-align" style="margin-bottom:0px;">
                 <!--container is added -->
-                <div id="welcome" class="welcome col s12 m8 l8" style="padding:0px 50px 0px 50px;">
+                <div id="welcome" class="welcome col s12 m8 l8 flow-text" style="padding:0px 50px 0px 50px;">
                     <!--Welcome column-->
                     <h2 class="wel_head" style="padding:30px 0px 0px 0px;">Welcome to our community</h2>
-                    <h4>New here? Why not register yourself</h4>
+                    <h4 >New here? Why not register yourself</h4>
                     <div id="Sign_up" class="row">
 
                         <form id="signup" action="signup" method="POST">
@@ -65,22 +46,14 @@
                                     <input type="password" name="pass" value="" id="password" required>
                                     <label for="Password">Password</label>
                                 </div>
-                                <br>
-                                <label>
-                                <input style="padding-top:15px;font-size:20px;" type="submit" id="signupbtn" class="waves-effect white teal-text btn-large " value="Sign Up">
-                                </label>
-                              </div>
-                        </form>
-                        <div class="col s4 m4 l6 center-align">
-                            <div class="container">
-
+                                
                                 <%  
                               if(request.getAttribute("signupResult")!=null && request.getAttribute("signupResult")=="false"){
                                %>
-                                    <div style="margin-top: 120px;">
+                                    <div >
                                         <span style="color:white">Registered Successfully</span>
                                     </div>
-                                    <br>
+                                    
                                     <%
                               }
                               %>
@@ -88,17 +61,21 @@
                                         <%  
                               if(request.getAttribute("signupResult")!=null && request.getAttribute("signupResult")=="true"){
                               %>
-                                            <div style="margin-top: 120px;">
+                                            <div>
                                                 <span style="color:white">User Already Exists or Problem in Registration</span>
                                             </div>
-                                            <br>
+                                            
                                             <%
 
                               }
                               %>
 
-                            </div>
-                        </div>
+                                <label>
+                                <input style="padding-top:15px;font-size:20px;" type="submit" id="signupbtn" class="waves-effect white teal-text btn-large " value="Sign Up">
+                                </label>
+                              </div>
+                        </form>
+                        
                     </div>
                 </div>
                 <div class="login col s12 m4 l4" style="padding:0px 50px 0px 50px;">
@@ -118,22 +95,24 @@
                     if(  request.getAttribute("loginResult")=="true"&&request.getAttribute("loginResult")!=null){
                 %>
                             <div>
-                                <span style="color:red">Wrong Username or Password</span>
+                                <span style="color:red;font-size: 20px;">Wrong Username or Password</span>
                             </div>
                             <%
                     }
                 %>
                                 <br>
                                 <label>
-                                    <input style="padding-top:15px;font-size:20px;" type="submit" id="loginbtn" class="waves-effect btn-large center-align" value="submit">
+                                    <input style="padding-top:15px;font-size:20px;" type="submit" id="loginbtn" class="waves-effect btn-large center-align flow-text" value="Login">
                                 </label>
-
-                                <a style="padding-left:20px;font-size:18px; " href="" class="tooltipped grey-text text-darken-1" data-position="bottom" data-delay="10" data-tooltip="Happens often">Forgot Password ?</a>
+				<br>
+				<br>
+                                <a style="font-size:18px; " href="" class="grey-text text-darken-1">Forgot Password ?</a>
                     </form>
                 </div>
             </div>
             <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
             <script type="text/javascript" src="js/materialize.min.js"></script>
+	    <script type="text/javascript" src="js/myscript2.js"></script>
         </body>
 
         </html>

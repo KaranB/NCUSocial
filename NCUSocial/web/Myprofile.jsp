@@ -11,9 +11,7 @@
 
 <head>
     <title>My Profile</title>
-</head>
-
-<style>
+    <style>
     nav {
         background-color: #01c7b6;
         color: white;
@@ -33,6 +31,7 @@
     }
     
 </style>
+</head>
 
 <body class="grey lighten-4">
     <%

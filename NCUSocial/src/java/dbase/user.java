@@ -29,10 +29,10 @@ public class user {
             try
             {
                 Connection con = makeConnection();
-		PreparedStatement stmt = con.prepareStatement("INSERT INTO user(email,name) VALUES(?,?);");
+                PreparedStatement stmt = con.prepareStatement("INSERT INTO user(email,name) VALUES(?,?);");
 		stmt.setString(1, email);
 		stmt.setString(2, name);
-		stmt.execute();
+                stmt.execute();
 		System.out.println("User Added Successfully");
 		con.close();
 		return true;

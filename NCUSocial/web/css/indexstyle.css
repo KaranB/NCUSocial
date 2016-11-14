@@ -1,20 +1,8 @@
-@media only screen and (max-width: 500px) {
-    .welcome {
-        height: 453.22px;
-    }
-    .login {
-        height: 453.22px;
-    }
-}
-
-.login {
-    height: 100%;
-}
 
 .welcome {
     background-color: #01c7b6;
     color: white;
-    height: 100%;
+   
 }
 
 #Sign_up {

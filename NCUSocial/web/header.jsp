@@ -56,20 +56,24 @@
                 if(cookie.getName().equals("JSESSIONID")) sessionID = cookie.getValue();
             }
         }
+	classes.userClass u = new classes.userClass(userName);
     %>
     <header class="flow-text">
         <!--navigation bar-->
+	<form action="logoutservlet" method="POST" id="logout">
         <ul id="dropdown1" class="dropdown-content">
-            <li><a href="#!">Security</a></li>
+            
+	    <li><a href="#!">Security</a></li>
             <li>
                 <a href="#!">some</a>
             </li>
             <li class="divider"></li>
-            <form action="logoutservlet" method="POST" id="logout">
+            
                 <li><a href="javascript:{}" onClick="document.getElementById('logout').submit();">Log Out</a></li>
-            </form>
         </ul>
-        <div class="navbar-fixed">
+          </form>
+
+	  <div class="navbar-fixed">
             <nav>
                 <div class="nav-wrapper">
                     <div class="row flow-text">
@@ -81,7 +85,7 @@
                     
 
                     <ul id="nav-mobile" class="right hide-on-med-and-down" style="position:relative; right:20px; top:-21px;">
-                        <li><a class="dropdown-button white-text" href="#!" data-activates="dropdown1">Hi ${user.getName()} !</a></li>
+                        <li><a class="dropdown-button white-text" href="#!" data-activates="dropdown1">Hi <%= u.getName() %></a></li>
                     </ul>
                     <ul class="side-nav" id="mobile-demo1">
                         <li>
