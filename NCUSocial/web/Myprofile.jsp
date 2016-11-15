@@ -5,7 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-
+<%@page import="classes.*;" %>
 
 <!DOCTYPE>
 <html>
@@ -62,23 +62,24 @@
 		   <div class="card-content">
 		   <h4>Your Uploads</h4>
 		   <input  id="checkall" type="checkbox" >
-		   <label style="margin-left:30px;" for="checkall"><input onclick="deleteselected();" style="margin-top:-6px;" class="wave-effect waves-light btn" type="submit" value="Delete"></label>
+		   <label style="margin-left:30px;" for="checkall"><input id="rmvBtn" style="margin-top:-6px;" class="wave-effect waves-light btn" type="submit" value="Delete"></label>
 		   <br>
 		   <ul style="margin-top:20px;" class="collection with-header">
+			<%
+			      Integer[] IDs= u.articles();
+			      if(IDs!=null){
+			      for(int ids: IDs){
+				   
+			      classes.articleClass obj = dbase.article.articleObj(ids);
+			%>
 			 <li class="collection-item">
-			      <div><input type="checkbox" name="checkbox" id="one">
-				   <label for="one">Alvin
-				   <span><a href="#!" class="secondary-content">View</a><a href="#!" class="secondary-content">Edit</a></span>
-				   </label>
-			     </div>
+			      <input type="checkbox" name="test[]" id="one">
+			      <label for="one"><%= obj.getTitle() %></label>
+			      <a href="#!" class="secondary-content">View</a><a href="#!" class="secondary-content">Edit</a>
 			 </li>
-			 <li class="collection-item">
-			      <div><input type="checkbox" name="checkbox" id="two">
-				   <label for="two">
-				   Alvin<a href="#!" class="secondary-content">View</a><a href="#!" class="secondary-content">Edit</a>
-				   </label>
-			     </div>
-			 </li>
+			 <%
+			      }}
+			 %>
 		   </ul>
 		   </div>
 		   
@@ -107,6 +108,7 @@
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
     <script type="text/javascript" src="js/myscript.js"></script>
+    
 </body>
 
 </html>

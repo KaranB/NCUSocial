@@ -60,45 +60,6 @@
                         </div>
                     </div>
                 <% }} %>
-<!--                    <div class="card">
-                        <div class="card-content grey-text text-darken-1">
-			     <h4>Title</h4>
-			     <span class="card-title " style="font-size:20px;">Posted by #Author on #date</span>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-
-
-                            </p>
-                        </div>
-                        <div class="card-action">
-                            <a href="#">View</a>
-                        </div>
-                    </div>
-		    <div class="card">
-                        <div class="card-content grey-text text-darken-1">
-			     <h4>Title</h4>
-			     <span class="card-title " style="font-size:20px;">Posted by #Author on #date</span>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-
-
-                            </p>
-                        </div>
-                        <div class="card-action">
-                            <a href="#">View</a>
-                        </div>
-                    </div>
-		    <div class="card">
-                        <div class="card-content grey-text text-darken-1">
-			     <h4>Title</h4>
-			     <span class="card-title " style="font-size:20px;">Posted by #Author on #date</span>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-
-
-                            </p>
-                        </div>
-                        <div class="card-action">
-                            <a href="#">View</a>
-                        </div>
-                    </div>-->
                 </div>
                 <div class="side_table col l3 " style="padding-top:20px;">
                     <div class="card white" style="position:fixed; margin-right:10px;">
