@@ -4,7 +4,7 @@ $(document).ready(function() {
     $('select').material_select();
     
     $("#rmvBtn").on("click", function() {
-	  $('input[name="test[]"]:checked').closest('li').remove();
+	  $('input[name="test[]"]:checked').closest('tr').remove();
      });
     
     $("#checkall").change(function () {

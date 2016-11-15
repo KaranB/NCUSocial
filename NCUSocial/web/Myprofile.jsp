@@ -60,27 +60,49 @@
 	 <div class="col s12 m12 l6 teal-text" style="padding-top:20px;">
 	      <form class="card white" action="#">
 		   <div class="card-content">
-		   <h4>Your Uploads</h4>
-		   <input  id="checkall" type="checkbox" >
-		   <label style="margin-left:30px;" for="checkall"><input id="rmvBtn" style="margin-top:-6px;" class="wave-effect waves-light btn" type="submit" value="Delete"></label>
-		   <br>
-		   <ul style="margin-top:20px;" class="collection with-header">
-			<%
-			      Integer[] IDs= u.articles();
-			      if(IDs!=null){
-			      for(int ids: IDs){
-				   
-			      classes.articleClass obj = dbase.article.articleObj(ids);
-			%>
-			 <li class="collection-item">
-			      <input type="checkbox" name="test[]" id="one">
-			      <label for="one"><%= obj.getTitle() %></label>
-			      <a href="#!" class="secondary-content">View</a><a href="#!" class="secondary-content">Edit</a>
-			 </li>
-			 <%
-			      }}
-			 %>
-		   </ul>
+			 <h4>Your Uploads</h4>
+
+			 <div>
+			      <input  id="checkall" type="checkbox" >
+			      <label style="margin-left:5px;" for="checkall"></label>
+			      
+			      <a id="rmvBtn" style="position:absolute;display: inline-block;top: 70px;right: 30px;" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">delete</i></a>
+        
+			     
+			 </div>
+
+			 
+			 <br>
+
+
+			  <table>
+			       <thead>
+				 <tr>
+				     <th data-field="id">ID</th>
+				     <th data-field="name">TITLE</th>
+				     <th data-field="price"></th>
+				 </tr>
+			       </thead>
+
+			       <tbody>
+				<%
+				    Integer[] IDs= u.articles();
+				    if(IDs!=null){
+				    for(int ids: IDs){
+
+				    classes.articleClass obj = dbase.article.articleObj(ids);
+				 %>
+				 <tr>
+				      <td><input type="checkbox" name="test[]" id="one"><label for="one"><%= ids %></label></td>
+				   <td><%= obj.getTitle() %> </td>
+				   <td><a href="#!" class="secondary-content"><i class="material-icons">mode_edit</i></a><a href="#!" class="secondary-content"><i class="material-icons">visibility</i></a></td>
+				 </tr>
+				 <%
+				    }}
+			       %>
+			       </tbody>
+			  </table>
+
 		   </div>
 		   
 	      </form>
@@ -99,7 +121,7 @@
 			  <li>More</li>
 		      </ul>
 		  </div>
-		  <div class="card-action">
+		  <div class="card-action">  
 		      <a href="#">View All</a>
 		  </div>
 	      </div>

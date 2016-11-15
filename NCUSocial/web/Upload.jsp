@@ -55,19 +55,13 @@
 
                                 <div class="col s11 m11 l11">
                                     <div class="input-field">
-                                        <textarea id="textarea1" class="materialize-textarea" length="500"></textarea>
+                                        <textarea id="textarea1" class="materialize-textarea" data-length="500"></textarea>
                                         <label for="textarea1">Content</label>
                                     </div>
-
-<!--                                    <div style="padding-bottom:20px;" class="file-field input-field">
-                                        <div class="btn">
-                                            <span>File</span>
-                                            <input type="file">
-                                        </div>
-                                        <div class="file-path-wrapper">
-                                            <input class="file-path validate" type="text">
-                                        </div>
-                                    </div>-->
+				    <label>
+                                    <input style="padding-top:5px;margin-bottom: 20px;font-size:20px;" type="submit" id="submitbtn" class="waves-effect btn-large center-align flow-text" value="Submit">
+				   </label>
+				   
                                 </div>
 
                             </form>
