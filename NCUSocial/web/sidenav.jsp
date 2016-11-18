@@ -15,6 +15,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
 	<script type="text/javascript" src="js/myscript.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/sidenavstyle.css">
     </head>
     <body>
 	 <%
@@ -36,7 +37,7 @@
 
 	  %>
 	 
-        <ul style="margin-top:65px;" class="side-nav fixed">
+        <ul class="sid_nav side-nav fixed">
         <li>
             <div class="userView">
                 <div class="background">

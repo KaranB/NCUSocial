@@ -1,10 +1,27 @@
-
+body{
+     height: 100%;
+}
+.main_div{
+     margin-bottom:0px;
+}
 .welcome {
     background-color: #01c7b6;
     color: white;
+    padding-left: 50px !important ;
+    padding-right: 50px !important ;
    
 }
+.wel_head{
+     padding:30px 0px 0px 0px !important;
+}
 
+@media only screen and (min-width :600px){
+     .welcome,.login{
+	  height: 100%;
+     }
+}
+
+/*sign up*/
 #Sign_up {
     background-color: #01c7b6;
 }
@@ -25,9 +42,9 @@
     border-bottom: 1px solid white;
 }
 
-
-/* label focus color */
-
+#signupbtn{
+     padding-top:15px;font-size:20px;
+}
 #Sign_up .input-field input[type=text]:focus+label {
     color: #757575;
 }
@@ -42,4 +59,17 @@
 
 #login_form .input-field input {
     border-bottom: 1px solid #757575;
+}
+
+.login{
+     padding:0px 50px 0px 50px !important;
+}
+.login_head{
+     padding:130px 0px 20px 0px !important;
+}
+#loginbtn{
+     padding-top:15px;font-size:20px;
+}
+.forgot{
+     font-size:18px; 
 }

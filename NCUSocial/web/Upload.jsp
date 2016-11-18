@@ -10,24 +10,19 @@
         <head>
             <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
             <title>Upload</title>
-            <style>
-                p,
-                li {
-                    font-size: 17px;
-                }
-            </style>
+	    <link rel="stylesheet" type="text/css" href="css/Uploadstyle.css">
         </head>
 
         <body class="grey lighten-4">
             <jsp:include page="header.jsp" />
             <jsp:include page="sidenav.jsp" />
             <div class="row">
-                <div class=" side_table col s12 m12 l3" style="padding-top:0px;"> </div>
-                <div class="col s12 m12 l6 grey-text text-darken-1" style="padding-top:11px;">
+                <div class="col s12 m12 l3"> </div>
+                <div class="main_con col s12 m12 l6 grey-text text-darken-1" >
 
                     <div class="card white grey-text text-darken-1 ">
                         <div class="row" style="padding-left:20px;">
-                            <h4 style="padding:20px 0px 0px 10px;">Article Upload</h4>
+			     <h4 class="arti_head">Article Upload</h4>
                             <br>
                             <form>
                                 <div class="col s8 m8 l6">
@@ -58,8 +53,8 @@
                                         <textarea id="textarea1" class="materialize-textarea" data-length="500"></textarea>
                                         <label for="textarea1">Content</label>
                                     </div>
-				    <label>
-                                    <input style="padding-top:5px;margin-bottom: 20px;font-size:20px;" type="submit" id="submitbtn" class="waves-effect btn-large center-align flow-text" value="Submit">
+				     <label id="sub_label">
+                                    <input type="submit" id="submitbtn" class="waves-effect btn-large center-align flow-text" value="Submit">
 				   </label>
 				   
                                 </div>
@@ -69,20 +64,9 @@
                     </div>
 
                 </div>
-                <div class="side_table col l3 " style="padding-top:20px;">
-                    <div class="card white" style="position:fixed; margin-right:10px;">
-                        <div class="card-content teal-text">
-                            <span class="card-title">Trending Articles</span>
-                            <ul>
-                                <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                                    consequat.
-                                </li>
-                                <li>text</li>
-                            </ul>
-                        </div>
-                        <div class="card-action">
-                            <a href="#">View All</a>
-                        </div>
+                <div class="side_table col l3 ">
+                    <div class="trend card white">
+			 <jsp:include page="Trending.jsp"></jsp:include>
                     </div>
                 </div>
             </div>

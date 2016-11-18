@@ -12,26 +12,7 @@
 
 <head>
     <title>My Profile</title>
-    <style>
-    nav {
-        background-color: #01c7b6;
-        color: white;
-    }
-    
-    @media only screen and (max-width: 990px) {
-        .side_table {
-            display: none;
-        }
-    }
-    
-    a {
-        padding-right: 15px;
-    }
-    p,li{
-        font-size: 17px;
-    }
-    
-</style>
+    <link rel="stylesheet" type="text/css" href="css/Myprofilestyle.css">
 </head>
 
 <body class="grey lighten-4">
@@ -56,17 +37,17 @@
     <jsp:include page="sidenav.jsp" />
     
     <div class="row">
-	 <div class=" side_table col s12 m12 l3" style="padding-top:0px;"> </div>
-	 <div class="col s12 m12 l6 teal-text" style="padding-top:20px;">
+	 <div class="col s12 m12 l3"> </div>
+	 <div class="main_con col s12 m12 l6 teal-text">
 	      <form class="card white" action="#">
 		   <div class="card-content">
 			 <h4>Your Uploads</h4>
 
 			 <div>
 			      <input  id="checkall" type="checkbox" >
-			      <label style="margin-left:5px;" for="checkall"></label>
+			      <label id="for_checkall" for="checkall"></label>
 			      
-			      <a id="rmvBtn" style="position:absolute;display: inline-block;top: 70px;right: 30px;" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">delete</i></a>
+			      <a id="rmvBtn" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">delete</i></a>
         
 			     
 			 </div>
@@ -107,23 +88,9 @@
 		   
 	      </form>
 	  </div>
-	  <div class="side_table col l3" style="padding-top:20px;">
-	      <div class="card white">
-		  <div class="card-content teal-text">
-		      <span class="card-title">Trending Articles</span>
-		      <ul>
-			  <li>text</li>
-			  <li>text</li>
-			  <li>text</li>
-			  <li>text</li>
-			  <li>text</li>
-			  <li>text</li>
-			  <li>More</li>
-		      </ul>
-		  </div>
-		  <div class="card-action">  
-		      <a href="#">View All</a>
-		  </div>
+	  <div class="side_table col l3">
+	      <div class="trend card white">
+		   <jsp:include page="Trending.jsp"></jsp:include>
 	      </div>
         </div>
     </div>
