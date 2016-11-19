@@ -26,7 +26,7 @@ public class article {
 	}
 	
         
-	public static boolean addArticle(int cid, int uid, String title, String text) throws ClassNotFoundException,SQLException
+	public static boolean addArticle(int cid, int uid, String title, String text)
 	{
 		Connection con = makeConnection();
                 if(con==null)
@@ -266,6 +266,9 @@ public class article {
                 obj.setTitle(rs.getString(3));
                 obj.setText(rs.getString(4));
                 obj.setViews(rs.getInt(5));
+                java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+                Timestamp date = rs.getTimestamp(6);
+                obj.setDate(sdf.format(date));
                 return obj;
             }
             catch(Exception e)

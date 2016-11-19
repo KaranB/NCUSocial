@@ -50,7 +50,7 @@
                     <div class="card">
                         <div class="card-content grey-text text-darken-1">
                             <h4><%= obj.getTitle() %></h4>
-			     <span class="card-title " style="font-size:20px;">Posted by <%= obj.publisher.getName() %> on #date</span>
+                            <span class="card-title " style="font-size:15px;">Posted by <i><b><%= obj.publisher.getName() %></b></i> on <%= obj.getDate() %></span>
                             <p>
                                 <%= obj.getText() %>
                             </p>

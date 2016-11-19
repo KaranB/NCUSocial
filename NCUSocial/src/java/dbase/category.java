@@ -27,7 +27,7 @@ public class category {
                 }
 	}
 	
-	public static boolean addCategory(String category_name) throws ClassNotFoundException,SQLException
+	public static boolean addCategory(String category_name)
 	{
             try
             {
@@ -176,6 +176,29 @@ public class category {
             }
         }
         
+        public static int categoryId(String name)
+        {   
+            try{
+                Connection con = makeConnection();
+                System.out.println("Name : "+name);
+                PreparedStatement stmt = con.prepareStatement("SELECT category_id FROM category WHERE category_name=?;");
+                stmt.setString(1,name);
+                ResultSet rs = stmt.executeQuery();
+                while(rs.next())
+                {
+                    return rs.getInt("category_id");
+                }
+                return -1;
+            }
+            catch(Exception e)
+            {
+                e.printStackTrace();
+                System.out.println("Unable to Fetch ID");
+                return -1;
+            }
+            
+        }
+
 }
 	
 //	public static void main(String[] args)

@@ -21,7 +21,7 @@ public class articleClass {
     private String text;
     private String cname;
     public userClass publisher;
-    
+    private String date;
     public articleClass(int aid)
     {
         try{
@@ -66,6 +66,14 @@ public class articleClass {
         return publisher;
     }
 
+    public int getViews() {
+        return views;
+    }
+
+    public String getDate() {
+        return date;
+    }
+    
     public void setCid(int cid) {
         String temp = article.changeCategory(aid,cid);
         if(temp==null)
@@ -116,5 +124,10 @@ public class articleClass {
     public void setViews(int views) {
         this.views = views;
     }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+    
     
 }

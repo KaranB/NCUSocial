@@ -19,6 +19,24 @@
         </head>
 
         <body class="grey lighten-4">
+        <%
+            String user = null;
+            if(session.getAttribute("user") == null){
+                response.sendRedirect("index.jsp");
+            }
+            else user = (String) session.getAttribute("user");
+            String userName = null;
+            String sessionID = null;
+            Cookie[] cookies = request.getCookies();
+            if(cookies !=null){
+                for(Cookie cookie : cookies){
+                    if(cookie.getName().equals("user")) userName = cookie.getValue();
+                    if(cookie.getName().equals("JSESSIONID")) sessionID = cookie.getValue();
+                }
+            }
+            classes.userClass u = new classes.userClass(userName);
+            session.setAttribute("email", u.getEmail());
+        %>
             <jsp:include page="header.jsp" />
             <jsp:include page="sidenav.jsp" />
             <div class="row">
@@ -29,15 +47,15 @@
                         <div class="row" style="padding-left:20px;">
                             <h4 style="padding:20px 0px 0px 10px;">Article Upload</h4>
                             <br>
-                            <form>
+                            <form method ="POST" action="upload">
                                 <div class="col s8 m8 l6">
                                     <div class="input-field">
-                                        <input type="text" id="article_name" />
+                                        <input type="text" id="article_name" name="title"/>
                                         <label for="article_name">Title</label>
                                     </div>
                                     <br>
                                     <div class="input-field">
-                                        <select id="selection_drop">
+                                        <select id="selection_drop" name="category">
                                             <%  Integer[] ids = dbase.category.categoriesId(); 
                                                 if(ids!=null){
                                                     for(int id: ids)
@@ -55,15 +73,35 @@
 
                                 <div class="col s11 m11 l11">
                                     <div class="input-field">
-                                        <textarea id="textarea1" class="materialize-textarea" data-length="500"></textarea>
+                                        <textarea id="textarea1" class="materialize-textarea" data-length="500" name="text"></textarea>
                                         <label for="textarea1">Content</label>
                                     </div>
+                                    <%
+                                    if(request.getAttribute("articleStatus")!=null && request.getAttribute("articleStatus")=="true")
+                                    {
+                                        
+                                    %>
+                                    <div>
+                                        Article Added Successfully
+                                    </div>
+                                    <br>
+                                    <% } %>
+                                    <% 
+                                        if(request.getAttribute("articleStatus")!=null && request.getAttribute("articleStatus")=="false")
+                                        {
+
+                                    %>
+                                    <div>
+                                        Unable to Add Article
+                                    </div>
+                                    <br>
+                                    <% } %>
 				    <label>
                                     <input style="padding-top:5px;margin-bottom: 20px;font-size:20px;" type="submit" id="submitbtn" class="waves-effect btn-large center-align flow-text" value="Submit">
 				   </label>
 				   
                                 </div>
-
+                                
                             </form>
                         </div>
                     </div>

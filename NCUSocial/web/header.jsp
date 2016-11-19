@@ -63,9 +63,9 @@
 	<form action="logoutservlet" method="POST" id="logout">
         <ul id="dropdown1" class="dropdown-content">
             
-	    <li><a href="#!">Security</a></li>
+<!--	    <li><a href="#!">Security</a></li>-->
             <li>
-                <a href="#!">some</a>
+                <a href="#!">Change Password</a>
             </li>
             <li class="divider"></li>
             
