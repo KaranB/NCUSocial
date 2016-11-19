@@ -20,6 +20,10 @@ nav {
      color: white;
 
 }
+#dropdown_btn{
+     text-align: center;
+     width: 170px !important;
+}
 #sidenav-overlay{
      z-index: 996;
 }
@@ -31,4 +35,7 @@ nav {
      position:relative; 
      right:20px !important; 
      top:-21px !important;
+}
+.side-nav-head{
+     padding-top: 10px !important;
 }

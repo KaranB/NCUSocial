@@ -66,7 +66,7 @@
                                     </div>
                                 </div>
 
-                                <div class="col s11 m11 l11">
+                                <div class="col s11 m11 l11" id="sub_col">
                                     <div class="input-field">
                                         <textarea id="textarea1" class="materialize-textarea" data-length="500" name="text"></textarea>
                                         <label for="textarea1">Content</label>

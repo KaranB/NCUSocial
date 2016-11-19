@@ -21,10 +21,11 @@
 	       <div class="col s12 m12 l3"> </div>
 	       <div class="main_con col s12 m12 l6 grey-text text-darken-1" >
 		    <% 
-                    Integer[] ids = article.allArticles();
-                    if(ids!=null){
-                    for(int id: ids)
-                    {	 
+                    
+		    String Usrid = session.getAttribute("UserId").toString();
+		    int id= Integer.parseInt(Usrid);
+                    if(Usrid!=null){
+                    	 
                         classes.articleClass obj = dbase.article.articleObj(id);
 		    %>
 		    <div class="card">
@@ -37,7 +38,7 @@
                         </div>
                         
                     </div>
-                <% }} %>
+                <% } %>
 	       </div>
 	       <div class="side_table col l3 ">
                     <div class="trend card white">

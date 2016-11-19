@@ -74,9 +74,10 @@
 				    classes.articleClass obj = dbase.article.articleObj(ids);
 				 %>
 				 <tr>
-				      <td><input type="checkbox" name="test[]" id="one"><label for="one"><%= ids %></label></td>
+				      <td><input type="checkbox" name="test[]" id=" <%= ids %> "><label for=" <%= ids %> "><%= ids %></label></td>
 				   <td><%= obj.getTitle() %> </td>
-				   <td><a href="#!" class="secondary-content"><i class="material-icons">mode_edit</i></a><a href="#!" class="secondary-content"><i class="material-icons">visibility</i></a></td>
+				   <td><a href="Editarticle.jsp" class="secondary-content"><i class="material-icons">mode_edit</i></a><a href="Viewarticle.jsp" class="secondary-content"><i class="material-icons">visibility</i></a></td>
+				   <% session.setAttribute("UserId",ids); %>
 				 </tr>
 				 <%
 				    }}

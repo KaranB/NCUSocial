@@ -30,6 +30,7 @@
                     for(int id: ids)
                     {
                         classes.articleClass obj = dbase.article.articleObj(id);
+			
                 %>
                     <div class="card">
                         <div class="card-content grey-text text-darken-1">
@@ -41,6 +42,7 @@
                         </div>
                         <div class="card-action">
                             <a href="Viewarticle.jsp">View</a>
+			    <% session.setAttribute("UserId",id); %>
                         </div>
                     </div>
                 <% }} %>
