@@ -90,6 +90,7 @@
                                         Unable to Add Article
                                     </div>
                                     <br>
+                                    <% } %>
 				     <label id="sub_label">
                                     <input type="submit" id="submitbtn" class="waves-effect btn-large center-align flow-text" value="Submit">
 				   </label>
