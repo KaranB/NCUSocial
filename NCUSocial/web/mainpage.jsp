@@ -4,7 +4,7 @@
     Author     : dbhrockzz
 --%>
 
-    <%@page import="dbase.article"%>
+<%@page import="dbase.article"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="dbase.article.*"%>
 <%@page import="classes.articleClass.*"%>
@@ -13,33 +13,17 @@
 
         <head>
             <title>Main Page</title>
-            <link rel="stylesheet" type="text/css" href="mainpage.css">
+            <link rel="stylesheet" type="text/css" href="css/mainpagestyle.css">
             <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
             <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <style>
-            @media only screen and (max-width: 990px) {
-                .side_table {
-                    display: none;
-                }
-            }
-            
-            a {
-                padding-right: 15px;
-            }
-            
-            p,
-            li {
-                font-size: 17px;
-            }
-        </style>
 	</head>
         <body class="grey lighten-4">
             <jsp:include page="header.jsp" />
             <jsp:include page="sidenav.jsp" />
 
             <div class="row">
-                <div class=" side_table col s12 m12 l3" style="padding-top:0px;"> some</div>
-                <div class="col s12 m12 l6" style="padding-top:20px;">
+                <div class="col s12 m12 l3"></div>
+                <div class="main_con col s12 m12 l6">
                 <% 
                     Integer[] ids = article.allArticles();
                     if(ids!=null){
@@ -56,26 +40,14 @@
                             </p>
                         </div>
                         <div class="card-action">
-                            <a href="#">View</a>
+                            <a href="Viewarticle.jsp">View</a>
                         </div>
                     </div>
                 <% }} %>
                 </div>
-                <div class="side_table col l3 " style="padding-top:20px;">
-                    <div class="card white" style="position:fixed; margin-right:10px;">
-                        <div class="card-content teal-text">
-                            <span class="card-title">Trending Articles</span>
-                            <ul>
-                                <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                                    consequat.
-                                </li>
-                                <li>text</li>
-
-                            </ul>
-                        </div>
-                        <div class="card-action">
-                            <a href="#">View All</a>
-                        </div>
+                <div class="side_table col l3 ">
+                    <div class="trend card white">
+			 <jsp:include page="Trending.jsp"></jsp:include>
                     </div>
                 </div>
             </div>
