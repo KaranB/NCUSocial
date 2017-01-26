@@ -23,7 +23,7 @@
 	       </ul>
 	  </div>
 	  <div class="card-action">
-	       <a href="#">View All</a>
+	       <a href="TrendingPage.jsp">View All</a>
 	  </div>
    
      </body>

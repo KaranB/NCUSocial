@@ -11,6 +11,16 @@
             <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
             <title>Upload</title>
 	    <link rel="stylesheet" type="text/css" href="css/Uploadstyle.css">
+	    <style>
+	       @media only screen and (min-width: 990px){
+		  main{
+		       padding-left: 260px;
+		  }
+		  .row .col.l9 {
+		       padding-right: 0px !important;
+		  }
+	       } 
+	    </style>
         </head>
 
         <body class="grey lighten-4">
@@ -34,9 +44,9 @@
         %>
             <jsp:include page="header.jsp" />
             <jsp:include page="sidenav.jsp" />
-            <div class="row">
-                <div class="col s12 m12 l3"> </div>
-                <div class="main_con col s12 m12 l6 grey-text text-darken-1" >
+	    <main>
+	    <div class="row">
+                <div class="main_con col s12 m12 l9 grey-text text-darken-1" >
 
                     <div class="card white grey-text text-darken-1 ">
                         <div class="row" style="padding-left:20px;">
@@ -108,6 +118,7 @@
                     </div>
                 </div>
             </div>
+	    </main>
             <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
             <script type="text/javascript" src="js/myscript.js">

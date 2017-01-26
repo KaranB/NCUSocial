@@ -13,6 +13,16 @@
 <head>
     <title>My Profile</title>
     <link rel="stylesheet" type="text/css" href="css/Myprofilestyle.css">
+    <style>
+	 @media only screen and (min-width: 990px){
+	       main{
+		    padding-left: 260px;
+	       }
+	       .row .col.l9 {
+		    padding-right: 0px !important;
+	       }
+	  } 
+    </style>
 </head>
 
 <body class="grey lighten-4">
@@ -36,9 +46,9 @@
     <jsp:include page="header.jsp" />
     <jsp:include page="sidenav.jsp" />
     
-    <div class="row">
-	 <div class="col s12 m12 l3"> </div>
-	 <div class="main_con col s12 m12 l6 teal-text">
+    <main>
+     <div class="row">
+	 <div class="main_con col s12 m12 l9 teal-text">
 	      <form class="card white" action="#">
 		   <div class="card-content">
 			 <h4>Your Uploads</h4>
@@ -48,14 +58,8 @@
 			      <label id="for_checkall" for="checkall"></label>
 			      
 			      <a id="rmvBtn" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">delete</i></a>
-        
-			     
 			 </div>
-
-			 
 			 <br>
-
-
 			  <table>
 			       <thead>
 				 <tr>
@@ -86,7 +90,7 @@
 			  </table>
 
 		   </div>
-		   
+	      
 	      </form>
 	  </div>
 	  <div class="side_table col l3">
@@ -95,6 +99,7 @@
 	      </div>
         </div>
     </div>
+    </main>
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
     <script type="text/javascript" src="js/myscript.js"></script>

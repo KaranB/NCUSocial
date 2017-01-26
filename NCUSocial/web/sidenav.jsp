@@ -16,7 +16,18 @@
         <title>JSP Page</title>
 	<script type="text/javascript" src="js/myscript.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/sidenavstyle.css">
+	<style>
+	     .sid_nav{
+	       margin-top:65px;
+
+	      }
+	     .side-nav.fixed{
+		  left:-40px;
+		  padding-left:40px; 
+	     }
+	</style>
     </head>
+    
     <body>
 	 <%
 	       String user = null;
@@ -37,11 +48,11 @@
 
 	  %>
 	 
-        <ul class="sid_nav side-nav fixed">
+        <ul class="sid_nav side-nav fixed ">
         <li>
             <div class="userView">
                 <div class="background">
-                    <img src="http://htmlcolorcodes.com/assets/images/html-color-codes-color-tutorials-hero-00e10b1f.jpg">
+		     <img src="">
                 </div>
                 <a href="#!user"><img class="circle" src="https://www.drupal.org/files/issues/user_5.png"></a>
                 <a href="#!name"><span class="name"> <%= u.getName() %> </span></a>
@@ -56,8 +67,9 @@
         <li>
             <div class="divider"></div>
         </li>
+	     
     </ul>
-	    
+
     </body>
     
 </html>

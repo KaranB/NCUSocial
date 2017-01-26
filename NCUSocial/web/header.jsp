@@ -58,7 +58,7 @@
 
                                 <li><a href="#!">Security</a></li>
                                 <li>
-                                    <a href="Passwordchange.jsp">Change Password</a>
+                                    <a href="Settings.jsp">Settings</a>
                                 </li>
                                 <li class="divider"></li>
 
@@ -75,11 +75,10 @@
 
                             <li><a href="javascript:{}" onClick="document.getElementById('logout').submit();">Log Out</a></li>
                         </ul>
-                        </form>
 
                         <div class="navbar-fixed">
                             <nav>
-                                <div class="nav-wrapper">
+                                <div class="nav-wrapper z-depth-0">
                                     <div class="row">
                                         <a href="#" class="brand-logo">NCU Learn</a>
                                         <div class="col s10 m10 "><a href="#" data-activates="mobile-demo1" class="button-collapse"><i class="material-icons">menu</i></a></div>

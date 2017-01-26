@@ -22,7 +22,7 @@ nav {
 }
 #dropdown_btn{
      text-align: center;
-     width: 170px !important;
+     min-width: 170px !important;
 }
 #sidenav-overlay{
      z-index: 996;
